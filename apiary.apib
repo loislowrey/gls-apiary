@@ -1,0 +1,218 @@
+HOST: http://api.glsdashboard.com/
+
+--- GLS Dashboard API v1.2.3 ---
+---
+All comments can be written in (support [Markdown](http://daringfireball.net/projects/markdown/syntax) syntax)
+
+[REST Spec](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)
+---
+
+--
+Login
+--
+login a user
+POST /login
+> Content-Type: application/json
+{ "username":"john@gmail.com", "userpassword": "password" }
+< 200
+< Content-Type: application/json
+{ "items": [
+    {
+       "url":"/users/1",
+       "id":1,
+	   "username":"jdoe",
+	   "email":"jdoe@gmail.com",
+	   "first_name":"John",
+	   "last_name":"Doe",
+	   "isAdmin":false,
+	   "type":1,
+	   "broadcasting":"live",
+	   "location":{
+	      "street":"51 Carriage Lake Drive",
+	      "city":"Brownsburg",
+	      "state":"IN",
+	      "zip":"46112"
+	   },
+       "profileUpdatePrompt": false,
+       "passwordUpdatePrompt": false
+	}
+] }
++++++
+< 400
+{ "items": [
+{ "message": "invalid username/password" }
+] }
+
+--
+Reset Password
+--
+reset a user's password
+GET /reset-password
+> Content-Type: application/json
+{ "email": "john@gmail.com" }
+< 205
+
+--
+Users
+The following is a section of resources related to users
+--
+retrieve all users
+GET /users
+< 200
+< Content-Type: application/json
+{ "items": [
+    {
+	   "url":"/users/1",
+	   "id":1,
+	   "username":"jdoe",
+	   "email":"jdoe@gmail.com",
+	   "first_name":"John",
+	   "last_name":"Doe",
+	   "isAdmin":false,
+	   "type":1,
+	   "broadcasting":"live",
+	   "location":{
+	      "street":"51 Carriage Lake Drive",
+	      "city":"Brownsburg",
+	      "state":"IN",
+	      "zip":"46112"
+	   },
+       "profileUpdatePrompt": false,
+       "passwordUpdatePrompt": false
+	}
+] }
+
+retrieve requested user by id
+GET /user
+> Content-Type: application/json
+{ "id":1 }
+< 200
+< Content-Type: application/json
+{ "items": [
+    {
+       "url":"/users/1",
+	   "id":1,
+	   "username":"jdoe",
+	   "email":"jdoe@gmail.com",
+	   "first_name":"John",
+	   "last_name":"Doe",
+	   "isAdmin":false,
+	   "type":1,
+	   "broadcasting":"live",
+	   "location":{
+	      "street":"51 Carriage Lake Drive",
+	      "city":"Brownsburg",
+	      "state":"IN",
+	      "zip":"46112"
+	   },
+       "profileUpdatePrompt": false,
+       "passwordUpdatePrompt": false
+	}
+] }
++++++
+< 400
+< Content-Type: application/json
+{ "items": [
+    { "message": "Please provide a user's id" }
+] }
+
+Create new user
+POST /user
+> Content-Type: application/json
+{ "username":"jdoe", "email": "jdoe@gmail.com", "first_name": "John", "last_name": "Doe", "isAdmin": false, "type": 1, "broadcasting": "live", "location": {"street": "51 Carriage Lake Drive", "city": "Brownsburg", "state": "IN", "zip": "46112"} }
+< 201
+< Content-Type: application/json
+{ "items": [
+    {
+       "url":"/users/1",
+	   "id":1,
+	   "username":"jdoe",
+	   "email":"jdoe@gmail.com",
+	   "first_name":"John",
+	   "last_name":"Doe",
+	   "isAdmin":false,
+	   "type":1,
+	   "broadcasting":"live",
+	   "location":{
+	      "street":"51 Carriage Lake Drive",
+	      "city":"Brownsburg",
+	      "state":"IN",
+	      "zip":"46112"
+	   },
+       "profileUpdatePrompt": false,
+       "passwordUpdatePrompt": false
+	}] }
++++++
+< 400
+{ "items": [
+{ "message": "please check your payload and try again" }
+] }
+
+Update (200) or Create (201) a user
+PUT /user/{id}
+> Content-Type: application/json
+{ "username":"jdoe", "email": "jdoe@gmail.com", "first_name": "John", "last_name": "Doe", "isAdmin": false, "type": 1, "broadcasting": "live", "location": {"street": "51 Carriage Lake Drive", "city": "Brownsburg", "state": "IN", "zip": "46112"} }
+< 200
+< Content-Type: application/json
+{ "items": [
+{
+       "url":"/users/1",
+       "id":1,
+	   "username":"jdoe",
+	   "email":"jdoe@gmail.com",
+	   "first_name":"John",
+	   "last_name":"Doe",
+	   "isAdmin":false,
+	   "type":1,
+	   "broadcasting":"live",
+	   "location":{
+	      "street":"51 Carriage Lake Drive",
+	      "city":"Brownsburg",
+	      "state":"IN",
+	      "zip":"46112"
+	   },
+       "profileUpdatePrompt": false,
+       "passwordUpdatePrompt": false
+	}] }
++++++
+< 201
+< Content-Type: application/json
+{ "items": [
+{
+       "url":"/users/1",
+       "id":1,
+	   "username":"jdoe",
+	   "email":"jdoe@gmail.com",
+	   "first_name":"John",
+	   "last_name":"Doe",
+	   "isAdmin":false,
+	   "type":1,
+	   "broadcasting":"live",
+	   "location":{
+	      "street":"51 Carriage Lake Drive",
+	      "city":"Brownsburg",
+	      "state":"IN",
+	      "zip":"46112"
+	   },
+       "profileUpdatePrompt": false,
+       "passwordUpdatePrompt": false
+	}] }
++++++
+< 400
+{ "items": [
+{ "message": "please check your payload and try again" }
+] }
+
+
+Delete user by id
+DELETE /user/{id}
+> Content-Type: application/json
+{ "id":1, "username": "jdoe" }
+< 204
++++++
+< 400
+{ "items": [
+{ "message": "please provide user's id" }
+] }
+
+
