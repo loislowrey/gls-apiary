@@ -1,6 +1,6 @@
 HOST: http://api.glsdashboard.com/
 
---- GLS Dashboard API v1.2.3 ---
+--- GLS Dashboard API v1.2.4 ---
 ---
 All comments can be written in (support [Markdown](http://daringfireball.net/projects/markdown/syntax) syntax)
 
@@ -22,10 +22,9 @@ POST /login
     {
        "url":"/users/1",
        "id":1,
-	   "username":"jdoe",
+       "username":"jdoe",
 	   "email":"jdoe@gmail.com",
-	   "first_name":"John",
-	   "last_name":"Doe",
+	   "full_name":"John",
 	   "isAdmin":false,
 	   "type":1,
 	   "broadcasting":"live",
@@ -68,8 +67,7 @@ GET /users
 	   "id":1,
 	   "username":"jdoe",
 	   "email":"jdoe@gmail.com",
-	   "first_name":"John",
-	   "last_name":"Doe",
+       "full_name":"John",
 	   "isAdmin":false,
 	   "type":1,
 	   "broadcasting":"live",
@@ -96,8 +94,7 @@ GET /user
 	   "id":1,
 	   "username":"jdoe",
 	   "email":"jdoe@gmail.com",
-	   "first_name":"John",
-	   "last_name":"Doe",
+       "full_name":"John",
 	   "isAdmin":false,
 	   "type":1,
 	   "broadcasting":"live",
@@ -121,7 +118,7 @@ GET /user
 Create new user
 POST /user
 > Content-Type: application/json
-{ "username":"jdoe", "email": "jdoe@gmail.com", "first_name": "John", "last_name": "Doe", "isAdmin": false, "type": 1, "broadcasting": "live", "location": {"street": "51 Carriage Lake Drive", "city": "Brownsburg", "state": "IN", "zip": "46112"} }
+{ "username":"jdoe", "email": "jdoe@gmail.com", "full_name": "John", "isAdmin": false, "type": 1, "broadcasting": "live", "location": {"street": "51 Carriage Lake Drive", "city": "Brownsburg", "state": "IN", "zip": "46112"} }
 < 201
 < Content-Type: application/json
 { "items": [
@@ -130,8 +127,7 @@ POST /user
 	   "id":1,
 	   "username":"jdoe",
 	   "email":"jdoe@gmail.com",
-	   "first_name":"John",
-	   "last_name":"Doe",
+       "full_name":"John",
 	   "isAdmin":false,
 	   "type":1,
 	   "broadcasting":"live",
@@ -153,7 +149,7 @@ POST /user
 Update (200) or Create (201) a user
 PUT /user/{id}
 > Content-Type: application/json
-{ "username":"jdoe", "email": "jdoe@gmail.com", "first_name": "John", "last_name": "Doe", "isAdmin": false, "type": 1, "broadcasting": "live", "location": {"street": "51 Carriage Lake Drive", "city": "Brownsburg", "state": "IN", "zip": "46112"} }
+{ "username":"jdoe", "email": "jdoe@gmail.com", "full_name": "John", "isAdmin": false, "type": 1, "broadcasting": "live", "location": {"street": "51 Carriage Lake Drive", "city": "Brownsburg", "state": "IN", "zip": "46112"} }
 < 200
 < Content-Type: application/json
 { "items": [
@@ -162,8 +158,7 @@ PUT /user/{id}
        "id":1,
 	   "username":"jdoe",
 	   "email":"jdoe@gmail.com",
-	   "first_name":"John",
-	   "last_name":"Doe",
+       "full_name":"John",
 	   "isAdmin":false,
 	   "type":1,
 	   "broadcasting":"live",
@@ -185,8 +180,7 @@ PUT /user/{id}
        "id":1,
 	   "username":"jdoe",
 	   "email":"jdoe@gmail.com",
-	   "first_name":"John",
-	   "last_name":"Doe",
+       "full_name":"John",
 	   "isAdmin":false,
 	   "type":1,
 	   "broadcasting":"live",
