@@ -1,6 +1,6 @@
 HOST: http://api.glsdashboard.com/
 
---- GLS Dashboard API v1.2.5 ---
+--- GLS Dashboard API v1.2.6 ---
 ---
 All comments can be written in (support [Markdown](http://daringfireball.net/projects/markdown/syntax) syntax)
 
@@ -35,8 +35,7 @@ POST /login
 	      "state":"IN",
 	      "zip":"46112"
 	   },
-       "profileUpdatePrompt": true,
-       "passwordUpdatePrompt": false
+       "profileUpdatePrompt": true
 	}
 ] }
 +++++
@@ -79,8 +78,7 @@ GET /users
 	      "state":"IN",
 	      "zip":"46112"
 	   },
-       "profileUpdatePrompt": false,
-       "passwordUpdatePrompt": false
+       "profileUpdatePrompt": false
 	}
 ] }
 
@@ -107,8 +105,7 @@ GET /user
 	      "state":"IN",
 	      "zip":"46112"
 	   },
-       "profileUpdatePrompt": false,
-       "passwordUpdatePrompt": false
+       "profileUpdatePrompt": false
 	}
 ] }
 +++++
@@ -141,8 +138,7 @@ POST /user
 	      "state":"IN",
 	      "zip":"46112"
 	   },
-       "profileUpdatePrompt": false,
-       "passwordUpdatePrompt": false
+       "profileUpdatePrompt": false
 	}] }
 +++++
 < 400
@@ -153,7 +149,7 @@ POST /user
 Update (200) or Create (201) a user
 PUT /user/{id}
 > Content-Type: application/json
-{ "username":"jdoe", "email": "jdoe@gmail.com", "full_name":"John Doe", "mobile_phone":"555-555-5555", "isAdmin": false, "type": 1, "broadcasting": "live", "location": {"street": "51 Carriage Lake Drive", "city": "Brownsburg", "state": "IN", "zip": "46112"} }
+{ "username":"jdoe", "email": "jdoe@gmail.com", "password": "password", full_name":"John Doe", "mobile_phone":"555-555-5555", "isAdmin": false, "type": 1, "broadcasting": "live", "location": {"street": "51 Carriage Lake Drive", "city": "Brownsburg", "state": "IN", "zip": "46112"} }
 < 200
 < Content-Type: application/json
 { "items": [
@@ -173,8 +169,7 @@ PUT /user/{id}
 	      "state":"IN",
 	      "zip":"46112"
 	   },
-       "profileUpdatePrompt": false,
-       "passwordUpdatePrompt": false
+       "profileUpdatePrompt": false
 	}] }
 +++++
 < 201
@@ -196,8 +191,7 @@ PUT /user/{id}
 	      "state":"IN",
 	      "zip":"46112"
 	   },
-       "profileUpdatePrompt": false,
-       "passwordUpdatePrompt": false
+       "profileUpdatePrompt": false
 	}] }
 +++++
 < 400
