@@ -82,6 +82,32 @@ GET /users
 	}
 ] }
 
+retrieve all users by site (location)
+GET /users/{site}
+< 200
+< Content-Type: application/json
+{ "items": [
+    {
+	   "url":"/users/1",
+	   "id":1,
+	   "username":"jdoe",
+	   "email":"jdoe@gmail.com",
+       "full_name":"John Doe",
+       "mobile_phone":"555-555-5555",
+	   "isAdmin":false,
+	   "type":1,
+	   "broadcasting":"live",
+	   "location":{
+	      "street":"51 Carriage Lake Drive",
+	      "city":"Brownsburg",
+	      "state":"IN",
+	      "zip":"46112"
+	   },
+       "profileUpdatePrompt": false
+	}
+] }
+
+
 retrieve requested user by id
 GET /user
 > Content-Type: application/json
