@@ -1,6 +1,6 @@
 HOST: http://api.glsdashboard.com/
 
---- GLS Dashboard API v1.2.6 ---
+--- GLS Dashboard API v1.2.7 ---
 ---
 All comments can be written in (support [Markdown](http://daringfireball.net/projects/markdown/syntax) syntax)
 
@@ -149,7 +149,7 @@ POST /user
 Update (200) or Create (201) a user
 PUT /user/{id}
 > Content-Type: application/json
-{ "username":"jdoe", "email": "jdoe@gmail.com", "password": "password", full_name":"John Doe", "mobile_phone":"555-555-5555", "isAdmin": false, "type": 1, "broadcasting": "live", "location": {"street": "51 Carriage Lake Drive", "city": "Brownsburg", "state": "IN", "zip": "46112"} }
+{ "username":"jdoe", "email": "jdoe@gmail.com", "password": "password", "full_name":"John Doe", "mobile_phone":"555-555-5555", "isAdmin": false, "type": 1, "broadcasting": "live", "location": {"street": "51 Carriage Lake Drive", "city": "Brownsburg", "state": "IN", "zip": "46112"} }
 < 200
 < Content-Type: application/json
 { "items": [
