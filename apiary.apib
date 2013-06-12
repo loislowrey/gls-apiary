@@ -10,6 +10,30 @@ Blueprint controlled through a [github repo](https://github.com/cmcculloh/test-a
 ---
 
 --
+Chat
+This is very much subject to change once i start actually implementing chat...
+--
+Send a chat message
+POST /chat
+> Content-Type: application/json
+{ "message": "some text here", "userid": 1, "recipients": [1, 2, {"userid": 2}] }
+< 204
+
+Retrieve chat messages applicable to user (includes chat sent directly to that user, to user's site and to all in user's site type, etc.). I'm thinking I'll handle pagination on client side
+GET /chat
+> Content-Type: application/json
+{ "userid": 1 }
+< 200
+< Content-Type: application/json
+{ "items": [
+    {
+    	"user_name": "John Doe",
+	    "message": "Some text here",
+	    "date": "Wed Jun 12 2013 11:33:14 GMT-0400 (EDT)"
+	}
+] }
+
+--
 Login
 --
 login a user
