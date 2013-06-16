@@ -10,6 +10,100 @@ Blueprint controlled through a [github repo](https://github.com/cmcculloh/test-a
 ---
 
 --
+Issues
+--
+Retrieve Issues
+GET /issues
+> Content-Type: aplication/json
+{ "resolved": false }
+< 200
+< Content-Type: application/json
+{ "items": [
+    {
+	   "url":"/issues/1",
+	   "id":1,
+	   "created":"Wed Jun 12 2013 11:33:14 GMT-0400 (EDT)",
+	   "site_id":"1",
+           "site_name":"First Church of Christ",
+           "issue":"Broadcasting Web Stream - Due to Weather",
+           "contact_person":"John Smith",
+           "contact_number":"555-555-1212",
+           "issue_length":"5"
+	}
+] }
+
+Create new issue
+POST /issue
+> Content-Type: application/json
+ {
+	   "site_id":"1",
+           "site_name":"First Church of Christ",
+           "issue":"Broadcasting Web Stream - Due to Weather",
+           "contact_person":"John Smith",
+           "contact_number":"555-555-1212",
+           "issue_length":"5"
+	}
+< 201
+< Content-Type: application/json
+{ "items": [
+     {
+	   "url":"/issues/1",
+	   "id":1,
+	   "created":"Wed Jun 12 2013 11:33:14 GMT-0400 (EDT)",
+	   "site_id":"1",
+           "site_name":"First Church of Christ",
+           "issue":"Broadcasting Web Stream - Due to Weather",
+           "contact_person":"John Smith",
+           "contact_number":"555-555-1212",
+           "issue_length":"5"
+	}] }
++++++
+< 400
+{ "items": [
+{ "message": "please check your payload and try again" }
+] }
+
+Update (200) or Create (201) a user
+PUT /issue/{id}
+> Content-Type: application/json
+ {
+	   "site_id":"1",
+           "site_name":"First Church of Christ",
+           "issue":"Broadcasting Web Stream - Due to Weather",
+           "contact_person":"John Smith",
+           "contact_number":"555-555-1212",
+           "issue_length":"5"
+	}
+< 200
+< Content-Type: application/json
+{ "items": [
+ {
+	   "site_id":"1",
+           "site_name":"First Church of Christ",
+           "issue":"Broadcasting Web Stream - Due to Weather",
+           "contact_person":"John Smith",
+           "contact_number":"555-555-1212",
+           "issue_length":"5"
+	}] }
++++++
+< 201
+< Content-Type: application/json
+{ "items": [ {
+	   "site_id":"1",
+           "site_name":"First Church of Christ",
+           "issue":"Broadcasting Web Stream - Due to Weather",
+           "contact_person":"John Smith",
+           "contact_number":"555-555-1212",
+           "issue_length":"5"
+	}] }
++++++
+< 400
+{ "items": [
+{ "message": "please check your payload and try again" }
+] }
+
+
+--
 Chat
 This is very much subject to change once i start actually implementing chat...
 --
@@ -107,7 +201,7 @@ GET /users
 ] }
 
 retrieve all users by site (location)
-GET /users/{site}
+GET /users/site/{site}
 < 200
 < Content-Type: application/json
 { "items": [
@@ -133,9 +227,7 @@ GET /users/{site}
 
 
 retrieve requested user by id
-GET /user
-> Content-Type: application/json
-{ "id":1 }
+GET /users/{1}
 < 200
 < Content-Type: application/json
 { "items": [
