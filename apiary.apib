@@ -110,7 +110,7 @@ This is very much subject to change once i start actually implementing chat...
 Send a chat message
 POST /chat
 > Content-Type: application/json
-{ "message": "some text here", "userid": 1, "recipients": [{'locationType': 1, 'locationId': 1}] }
+{ "message": "some text here", "userid": 1, "recipients": [{'locationType': 1}, {'locationType': 2}, {'locationId': 1}] }
 < 204
 
 Retrieve chat messages applicable to user (includes chat sent directly to that user, to user's site and to all in user's site type, etc.). I'm thinking I'll handle pagination on client side
