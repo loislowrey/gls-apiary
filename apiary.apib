@@ -1,6 +1,6 @@
 HOST: http://api.glsdashboard.com/
 
---- GLS Dashboard API v1.5.1 ---
+--- GLS Dashboard API v1.5.2 ---
 ---
 All comments can be written in (support [Markdown](http://daringfireball.net/projects/markdown/syntax) syntax)
 
@@ -479,16 +479,7 @@ GET /users/{1}
 Create new user
 POST /user
 > Content-Type: application/json
-{ "username":"jdoe", "email": "jdoe@gmail.com", "full_name":"John Doe", "mobile_phone":"555-555-5555", "isAdmin": false, "site":{
-		"site_name":"Willow Creek Community Church",
-		"site_type_id":1,
-		"site_type": "premiere",
-		"site_time":"live",
-		"address": "123 N Main Street",
-		"city": "Indianapolis",
-		"state": "Indiana",
-		"zipcode": "46221"
-	}, }
+{ "username":"jdoe", "email": "jdoe@gmail.com", "full_name":"John Doe", "mobile_phone":"555-555-5555", "isAdmin": false, site_id: 1 }
 < 201
 < Content-Type: application/json
 { "items": [
@@ -523,18 +514,7 @@ POST /user
 Update (200) or Create (201) a user
 PUT /user/{id}
 > Content-Type: application/json
-{ "username":"jdoe", "email": "jdoe@gmail.com", "password": "password", "full_name":"John Doe", "mobile_phone":"555-555-5555", "isAdmin": false, "site":{
-		"url":"/sites/1",
-		"id":1,
-		"site_name":"Willow Creek Community Church",
-		"site_type_id":1,
-		"site_type": "premiere",
-		"site_time":"live",
-		"address": "123 N Main Street",
-		"city": "Indianapolis",
-		"state": "Indiana",
-		"zipcode": "46221"
-	} }
+{ "username":"jdoe", "email": "jdoe@gmail.com", "password": "password", "full_name":"John Doe", "mobile_phone":"555-555-5555", "isAdmin": false, site_id: 1 }
 < 200
 < Content-Type: application/json
 { "items": [
