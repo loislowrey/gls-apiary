@@ -1,6 +1,6 @@
 HOST: http://api.glsdashboard.com/
 
---- GLS Dashboard API v1.5.2 ---
+--- GLS Dashboard API v1.5.3 ---
 ---
 All comments can be written in (support [Markdown](http://daringfireball.net/projects/markdown/syntax) syntax)
 
@@ -8,6 +8,22 @@ Blueprint controlled through a [github repo](https://github.com/cmcculloh/test-a
 
 [REST Spec](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)
 ---
+
+
+--
+Broadcast Statuses
+--
+Retrieve broadcast statuses
+GET /broadcast_statuses
+> Content-Type: aplication/json
+< 200
+< Content-Type: application/json
+{ "items": [{
+	"id":1,
+	"status":"Broadcasting Web Stream - Due to Weather",
+}] }
+
+
 
 --
 Issues
@@ -24,7 +40,8 @@ GET /issues
 	"created":"Wed Jun 12 2013 11:33:14 GMT-0400 (EDT)",
 	"site_id":"1",
 	"site_name":"First Church of Christ",
-	"issue":"Broadcasting Web Stream - Due to Weather",
+	"broadcast_status_id":1,
+	"broadcast_status":"Broadcasting Web Stream - Due to Weather",
 	"contact_person":"John Smith",
 	"contact_number":"555-555-1212",
 	"issue_length":"5"
@@ -36,7 +53,7 @@ POST /issue
 {
 	"site_id":"1",
 	"site_name":"First Church of Christ",
-	"issue":"Broadcasting Web Stream - Due to Weather",
+	"broadcast_status_id":1,
 	"contact_person":"John Smith",
 	"contact_number":"555-555-1212",
 	"issue_length":"5"
@@ -49,7 +66,8 @@ POST /issue
 	"created":"Wed Jun 12 2013 11:33:14 GMT-0400 (EDT)",
 	"site_id":"1",
 	"site_name":"First Church of Christ",
-	"issue":"Broadcasting Web Stream - Due to Weather",
+	"broadcast_status_id":1,
+	"broadcast_status":"Broadcasting Web Stream - Due to Weather",
 	"contact_person":"John Smith",
 	"contact_number":"555-555-1212",
 	"issue_length":"5"
@@ -64,19 +82,17 @@ Update (200) or Create (201) an issue
 PUT /issue/{id}
 > Content-Type: application/json
 {
-	"site_id":"1",
-	"site_name":"First Church of Christ",
-	"issue":"Broadcasting Web Stream - Due to Weather",
-	"contact_person":"John Smith",
-	"contact_number":"555-555-1212",
-	"issue_length":"5"
+	"user_id":"1",
+	"comment": "adsfasdf adsfadsf asdfasdf",
+	"issue_type_id": "1"
 }
 < 200
 < Content-Type: application/json
 { "items": [{
 	"site_id":"1",
 	"site_name":"First Church of Christ",
-	"issue":"Broadcasting Web Stream - Due to Weather",
+	"broadcast_status_id":1,
+	"broadcast_status":"Broadcasting Web Stream - Due to Weather",
 	"contact_person":"John Smith",
 	"contact_number":"555-555-1212",
 	"issue_length":"5"
@@ -87,7 +103,8 @@ PUT /issue/{id}
 { "items": [ {
 	"site_id":"1",
 	"site_name":"First Church of Christ",
-	"issue":"Broadcasting Web Stream - Due to Weather",
+	"broadcast_status_id":1,
+	"broadcast_status":"Broadcasting Web Stream - Due to Weather",
 	"contact_person":"John Smith",
 	"contact_number":"555-555-1212",
 	"issue_length":"5"
@@ -246,7 +263,10 @@ GET /sites
 		"address": "123 N Main Street",
 		"city": "Indianapolis",
 		"state": "Indiana",
-		"zipcode": "46221"
+		"zipcode": "46221",
+		"lat": 234234,
+		"lon": 324325,
+		"markerURL": "http://www.google.com"
 	}
 ] }
 
@@ -276,6 +296,9 @@ POST /site
 		"city": "Indianapolis",
 		"state": "Indiana",
 		"zipcode": "46221"
+		"lat": 234234,
+		"lon": 324325,
+		"markerURL": "http://www.google.com"
 	}] }
 +++++
 < 400
@@ -309,6 +332,9 @@ PUT /site/{id}
 		"city": "Indianapolis",
 		"state": "Indiana",
 		"zipcode": "46221"
+		"lat": 234234,
+		"lon": 324325,
+		"markerURL": "http://www.google.com"
 	}] }
 +++++
 < 201
@@ -324,6 +350,9 @@ PUT /site/{id}
 	"city": "Indianapolis",
 	"state": "Indiana",
 	"zipcode": "46221"
+	"lat": 234234,
+	"lon": 324325,
+	"markerURL": "http://www.google.com"
 }] }
 +++++
 < 400
