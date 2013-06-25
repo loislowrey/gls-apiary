@@ -19,7 +19,7 @@ GET /broadcast_statuses
 < 200
 < Content-Type: application/json
 { "items": [{
-	"id":1,
+    "id":1,
 	"open_issue":false
 	"status":"Broadcasting Web Stream - Due to Weather",
 	"require_details": true,
@@ -30,6 +30,9 @@ GET /broadcast_statuses
 JSON Schema Validations
 --
 GET /broadcast_statuses
+> Content-Type: aplication/json
+< 200
+< Content-Type: application/json
 {
 	"$schema": "http://json-schema.org/draft-04/schema#",
 	"title": "Broadcast Statuses Set",
@@ -611,5 +614,4 @@ DELETE /user/{id}
 { "items": [
 { "message": "please provide user's id" }
 ] }
-
 
