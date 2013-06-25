@@ -26,48 +26,6 @@ GET /broadcast_statuses
 	"marker_url": "http://www.google.com"
 }] }
 
----
-JSON Schema Validations
----
-GET /broadcast_statuses
-> Content-Type: aplication/json
-< 200
-< Content-Type: application/json
-{
-	"$schema": "http://json-schema.org/draft-04/schema#",
-	"title": "Broadcast Statuses Set",
-	"type": "array",
-	"items": {
-		"title": "Broadcast Status",
-		"type": "object",
-		"properties":{
-			"id":{
-				"descripton": "unique identifier for broadcast status",
-				"type": "number"
-			},
-			"open_issue":{
-				"description": "Whether this status triggers an issue being created",
-				"type": "boolean"
-			},
-			"status":{
-				"type": "string",
-				"oneOf": [
-					"Broadcasting Satellite Feed - All Systems Go!",
-					"Broadcasting Web Stream - Due to Weather",
-					"Broadcasting Web Stream - Due to Other"
-				]
-			},
-			"require_details": {
-				"type": "boolean"
-			},
-			"marker_url": {
-				"desctiption": "image url (or data)",
-				"type": "string"
-			}
-		}
-	}
-}
-
 
 
 --
@@ -615,3 +573,39 @@ DELETE /user/{id}
 { "message": "please provide user's id" }
 ] }
 
+-- JSON Schema Validations --
+GET /broadcast_statuses
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "Broadcast Statuses Set",
+	"type": "array",
+	"items": {
+		"title": "Broadcast Status",
+		"type": "object",
+		"properties":{
+			"id":{
+				"descripton": "unique identifier for broadcast status",
+				"type": "number"
+			},
+			"open_issue":{
+				"description": "Whether this status triggers an issue being created",
+				"type": "boolean"
+			},
+			"status":{
+				"type": "string",
+				"oneOf": [
+					"Broadcasting Satellite Feed - All Systems Go!",
+					"Broadcasting Web Stream - Due to Weather",
+					"Broadcasting Web Stream - Due to Other"
+				]
+			},
+			"require_details": {
+				"type": "boolean"
+			},
+			"marker_url": {
+				"desctiption": "image url (or data)",
+				"type": "string"
+			}
+		}
+	}
+}
