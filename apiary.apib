@@ -1,6 +1,6 @@
 HOST: http://api.glsdashboard.com/
 
---- GLS Dashboard API v1.6.4 ---
+--- GLS Dashboard API v1.6.5 ---
 ---
 All comments can be written in (support [Markdown](http://daringfireball.net/projects/markdown/syntax) syntax)
 
@@ -26,7 +26,9 @@ GET /broadcast_statuses
 	"marker_url": "http://www.google.com"
 }] }
 
--- JSON Schema Validations --
+--
+JSON Schema Validations
+--
 {
 	"$schema": "http://json-schema.org/draft-04/schema#",
 	"title": "Broadcast Statuses Set",
@@ -259,7 +261,6 @@ GET /sites
 < Content-Type: application/json
 { "items": [
 	{
-		"url":"/sites/1",
 		"id":1,
 		"site_id":"sadfsasdf",
 		"site_name":"Willow Creek Community Church",
@@ -294,7 +295,6 @@ POST /site
 < Content-Type: application/json
 { "items": [
 	{
-		"url":"/sites/1",
 		"id":1,
 		"site_id":"sadfsasdf",
 		"site_name":"Willow Creek Community Church",
@@ -332,7 +332,6 @@ PUT /site/{id}
 < Content-Type: application/json
 { "items": [
 	{
-		"url":"/sites/1",
 		"id":1,
 		"site_id":"sadfsasdf",
 		"site_name":"Willow Creek Community Church",
@@ -351,7 +350,6 @@ PUT /site/{id}
 < 201
 < Content-Type: application/json
 { "items": [ {
-	"url":"/sites/1",
 	"id":1,
 	"site_id":"sadfsasdf",
 	"site_name":"Willow Creek Community Church",
@@ -388,7 +386,6 @@ POST /login
 < Content-Type: application/json
 { "items": [
 {
-	"url":"/users/1",
 	"id":1,
 	"username":"jdoe",
 	"email":"jdoe@gmail.com",
@@ -396,7 +393,6 @@ POST /login
 	"mobile_phone":"555-555-5555",
 	"isAdmin":false,
 	"site":{
-		"url":"/sites/1",
 		"id":1,
 		"site_status_id":1,
 		"site_name":"Willow Creek Community Church",
@@ -435,7 +431,6 @@ GET /users
 < 200
 < Content-Type: application/json
 { "items": [{
-	"url":"/users/1",
 	"id":1,
 	"username":"jdoe",
 	"email":"jdoe@gmail.com",
@@ -443,7 +438,6 @@ GET /users
 	"mobile_phone":"555-555-5555",
 	"isAdmin":false,
 	"site":{
-		"url":"/sites/1",
 		"id":1,
 		"site_name":"Willow Creek Community Church",
 		"site_type_id":1,
@@ -462,7 +456,6 @@ GET /users/site/{site}
 < 200
 < Content-Type: application/json
 { "items": [{
-	"url":"/users/1",
 	"id":1,
 	"username":"jdoe",
 	"email":"jdoe@gmail.com",
@@ -470,7 +463,6 @@ GET /users/site/{site}
 	"mobile_phone":"555-555-5555",
 	"isAdmin":false,
 	"site":{
-		"url":"/sites/1",
 		"id":1,
 		"site_name":"Willow Creek Community Church",
 		"site_type_id":1,
@@ -490,7 +482,6 @@ GET /users/{1}
 < 200
 < Content-Type: application/json
 { "items": [{
-	"url":"/users/1",
 	"id":1,
 	"username":"jdoe",
 	"email":"jdoe@gmail.com",
@@ -498,7 +489,6 @@ GET /users/{1}
 	"mobile_phone":"555-555-5555",
 	"isAdmin":false,
 	"site":{
-		"url":"/sites/1",
 		"id":1,
 		"site_status_id":1,
 		"site_name":"Willow Creek Community Church",
@@ -527,7 +517,6 @@ POST /user
 < Content-Type: application/json
 { "items": [
     {
-       "url":"/users/1",
 	   "id":1,
 	   "username":"jdoe",
 	   "email":"jdoe@gmail.com",
@@ -535,7 +524,6 @@ POST /user
        "mobile_phone":"555-555-5555",
 	   "isAdmin":false,
 		"site":{
-			"url":"/sites/1",
 			"id":1,
 			"site_name":"Willow Creek Community Church",
 			"site_type_id":1,
@@ -562,7 +550,6 @@ PUT /user/{id}
 < Content-Type: application/json
 { "items": [
 {
-       "url":"/users/1",
        "id":1,
 	   "username":"jdoe",
 	   "email":"jdoe@gmail.com",
@@ -570,7 +557,6 @@ PUT /user/{id}
        "mobile_phone":"555-555-5555",
 	   "isAdmin":false,
 		"site":{
-			"url":"/sites/1",
 			"id":1,
 			"site_name":"Willow Creek Community Church",
 			"site_type_id":1,
@@ -588,7 +574,6 @@ PUT /user/{id}
 < Content-Type: application/json
 { "items": [
 {
-       "url":"/users/1",
        "id":1,
 	   "username":"jdoe",
 	   "email":"jdoe@gmail.com",
@@ -596,7 +581,6 @@ PUT /user/{id}
        "mobile_phone":"555-555-5555",
 	   "isAdmin":false,
 		"site":{
-			"url":"/sites/1",
 			"id":1,
 			"site_name":"Willow Creek Community Church",
 			"site_type_id":1,
