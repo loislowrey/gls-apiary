@@ -1,6 +1,6 @@
 HOST: http://api.glsdashboard.com/
 
---- GLS Dashboard API v1.6.3 ---
+--- GLS Dashboard API v1.6.4 ---
 ---
 All comments can be written in (support [Markdown](http://daringfireball.net/projects/markdown/syntax) syntax)
 
@@ -46,7 +46,9 @@ GET /broadcast_statuses
 			"status":{
 				"type": "string",
 				"oneOf": [
-					"Broadcasting Web Stream - Due to Weather"
+					"Broadcasting Satellite Feed - All Systems Go!",
+					"Broadcasting Web Stream - Due to Weather",
+					"Broadcasting Web Stream - Due to Other"
 				]
 			},
 			"require_details": {
