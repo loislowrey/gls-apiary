@@ -1,6 +1,6 @@
 HOST: http://api.glsdashboard.com/
 
---- GLS Dashboard API v1.6.1 ---
+--- GLS Dashboard API v1.6.2 ---
 ---
 All comments can be written in (support [Markdown](http://daringfireball.net/projects/markdown/syntax) syntax)
 
@@ -18,6 +18,15 @@ GET /broadcast_statuses
 > Content-Type: aplication/json
 < 200
 < Content-Type: application/json
+{ "items": [{
+	"id":1,
+	"open_issue":0,
+	"status":"Broadcasting Web Stream - Due to Weather",
+	"require_details": true,
+	"marker_url": "http://www.google.com"
+}] }
+
+-- JSON Schema Validations --
 {
 	"$schema": "http://json-schema.org/draft-04/schema#",
 	"title": "Broadcast Statuses Set",
