@@ -1,6 +1,6 @@
 HOST: http://api.glsdashboard.com/
 
---- GLS Dashboard API v1.5.5 ---
+--- GLS Dashboard API v1.6.0 ---
 ---
 All comments can be written in (support [Markdown](http://daringfireball.net/projects/markdown/syntax) syntax)
 
@@ -20,6 +20,7 @@ GET /broadcast_statuses
 < Content-Type: application/json
 { "items": [{
 	"id":1,
+	"open_issue":0,
 	"status":"Broadcasting Web Stream - Due to Weather",
 	"require_details": true,
 	"marker_url": "http://www.google.com"
@@ -37,7 +38,6 @@ GET /issues
 < 200
 < Content-Type: application/json
 { "items": [{
-	"url":"/issues/1",
 	"id":1,
 	"created":"Wed Jun 12 2013 11:33:14 GMT-0400 (CDT)",
 	"site_id":"1",
@@ -48,65 +48,17 @@ GET /issues
 	"contact_number":"555-555-1212",
 }] }
 
-Create new issue
-POST /issue
-> Content-Type: application/json
-{
-	"site_id":"1",
-	"broadcast_status_id":1,
-	"details": "these are my details"
-}
-< 201
-< Content-Type: application/json
-{ "items": [{
-	"url":"/issues/1",
-	"id":1,
-	"created":"Wed Jun 12 2013 11:33:14 GMT-0400 (CDT)",
-	"site_id":"1",
-	"site_name":"First Church of Christ",
-	"broadcast_status_id":1,
-	"broadcast_status":"Broadcasting Web Stream - Due to Weather",
-	"contact_person":"John Smith",
-	"contact_number":"555-555-1212",
-	"issue_length":"5"
-}] }
-+++++
-< 400
-{ "items": [
-{ "message": "please check your payload and try again" }
-] }
-
-Update (200) or Create (201) an issue
-PUT /issue/{id}
+create an issue comment
+POST /issue/{id}/comment
 > Content-Type: application/json
 {
 	"user_id":"1",
 	"comment": "adsfasdf adsfadsf asdfasdf",
-	"issue_type_id": "1"
+	"issue_type_id": 1,
+	"resolved":0|1
 }
 < 200
 < Content-Type: application/json
-{ "items": [{
-	"site_id":"1",
-	"site_name":"First Church of Christ",
-	"broadcast_status_id":1,
-	"broadcast_status":"Broadcasting Web Stream - Due to Weather",
-	"contact_person":"John Smith",
-	"contact_number":"555-555-1212",
-	"issue_length":"5"
-}] }
-+++++
-< 201
-< Content-Type: application/json
-{ "items": [ {
-	"site_id":"1",
-	"site_name":"First Church of Christ",
-	"broadcast_status_id":1,
-	"broadcast_status":"Broadcasting Web Stream - Due to Weather",
-	"contact_person":"John Smith",
-	"contact_number":"555-555-1212",
-	"issue_length":"5"
-}] }
 +++++
 < 400
 { "items": [
@@ -116,14 +68,21 @@ PUT /issue/{id}
 
 --
 Chat
-This is very much subject to change once i start actually implementing chat...
+This is subject to change once i start actually implementing chat...
 
 "All Live" field would just contain a comma separated list of all llive location types that would then be broken out into the proper recipients
 --
 Send a chat message
+
+Create new issue if appropriate based on broadcast status_id (IF INCLUDED)
 POST /chat
 > Content-Type: application/json
-{ "message": "some text here", "userid": 1, "recipients": [{'locationType': 1}, {'locationType': 2}, {'locationId': 1}] }
+{
+	"message": "some text here",
+	"userid": 1,
+	"recipients": [{'locationType': 1}, {'locationType': 2}, {'locationId': 1}],
+	"broadcast_status_id": 1
+}
 < 204
 
 Retrieve chat messages applicable to user (includes chat sent directly to that user, to user's site and to all in user's site type, etc.). I'm thinking I'll handle pagination on client side
@@ -271,6 +230,7 @@ GET /sites
 		"site_type_id":1,
 		"site_type": "premiere",
 		"site_time":"live",
+		"site_status_id":1,
 		"address": "123 N Main Street",
 		"city": "Indianapolis",
 		"state": "Indiana",
@@ -402,6 +362,7 @@ POST /login
 	"site":{
 		"url":"/sites/1",
 		"id":1,
+		"site_status_id":1,
 		"site_name":"Willow Creek Community Church",
 		"site_type_id":1,
 		"site_type": "premiere",
@@ -503,6 +464,7 @@ GET /users/{1}
 	"site":{
 		"url":"/sites/1",
 		"id":1,
+		"site_status_id":1,
 		"site_name":"Willow Creek Community Church",
 		"site_type_id":1,
 		"site_type": "premiere",
