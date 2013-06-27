@@ -1,6 +1,6 @@
 HOST: http://api.glsdashboard.com/
 
---- GLS Dashboard API v1.6.8 ---
+--- GLS Dashboard API v1.6.9 ---
 ---
 All comments can be written in (support [Markdown](http://daringfireball.net/projects/markdown/syntax) syntax)
 
@@ -85,9 +85,8 @@ POST /chat
 < 204
 
 Retrieve chat messages applicable to user (includes chat sent directly to that user, to user's site and to all in user's site type, etc.). I'm thinking I'll handle pagination on client side
-GET /chat
+GET /chats/{user_id}/
 > Content-Type: application/json
-{ "userid": 1 }
 < 200
 < Content-Type: application/json
 { "items": [{
