@@ -48,14 +48,13 @@ GET /issues
 	"contact_number":"555-555-1212",
 }] }
 
-create an issue comment
+create an issue comment. This is how issues are resolved as well...
 POST /issue/{id}/comment
 > Content-Type: application/json
 {
-	"user_id":"1",
+	"user_id":1,
 	"comment": "adsfasdf adsfadsf asdfasdf",
-	"issue_type_id": 1,
-	"resolved":0|1
+	"resolved":true
 }
 < 200
 < Content-Type: application/json
@@ -474,7 +473,14 @@ GET /users/{1}
 Create new user
 POST /user
 > Content-Type: application/json
-{ "username":"jdoe", "email": "jdoe@gmail.com", "full_name":"John Doe", "mobile_phone":"555-555-5555", "isAdmin": false, site_id: 1 }
+{
+	"username":"jdoe",
+	"email": "jdoe@gmail.com",
+	"full_name":"John Doe",
+	"mobile_phone":"555-555-5555",
+	"isAdmin": false,
+	site_id: 1
+}
 < 201
 < Content-Type: application/json
 { "items": [
@@ -507,7 +513,15 @@ POST /user
 Update (200) or Create (201) a user
 PUT /user/{id}
 > Content-Type: application/json
-{ "username":"jdoe", "email": "jdoe@gmail.com", "password": "password", "full_name":"John Doe", "mobile_phone":"555-555-5555", "isAdmin": false, site_id: 1 }
+{
+	"username":"jdoe",
+	"email": "jdoe@gmail.com",
+	"password": "password",
+	"full_name":"John Doe",
+	"mobile_phone":"555-555-5555",
+	"isAdmin": false,
+	site_id: 1
+}
 < 200
 < Content-Type: application/json
 { "items": [
@@ -565,7 +579,6 @@ PUT /user/{id}
 Delete user by id
 DELETE /user/{id}
 > Content-Type: application/json
-{ "id":1, "username": "jdoe" }
 < 204
 +++++
 < 400
@@ -592,11 +605,16 @@ GET /broadcast_statuses
 				"type": "boolean"
 			},
 			"status":{
+				"description": "populates drop-down box for user submitted statuses",
 				"type": "string",
 				"oneOf": [
 					"Broadcasting Satellite Feed - All Systems Go!",
 					"Broadcasting Web Stream - Due to Weather",
-					"Broadcasting Web Stream - Due to Other"
+					"Broadcasting Web Stream - Due to Other",
+					"Rental Projector Issue (Premiere Only) - Still Broadcasting",
+					"Other",
+					"EMERGENCY - Offline",
+					"Offline - End of Day"
 				]
 			},
 			"require_details": {
@@ -607,5 +625,29 @@ GET /broadcast_statuses
 				"type": "string"
 			}
 		}
-	}
+	},
+	"required": ["id", "open_issue", "status", "require_details", "marker_url"]
+}
+
+POST /issue/{id}/comment
+> Content-Type: application/json
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "Comment on an Issue",
+	"type": "object",
+	"properties": {
+		"user_id":{
+			"description": "id of user making comment",
+			"type": "number"
+		},
+		"comment": {
+			"description": "user entered text",
+			"type": "string"
+		},
+		"resolved": {
+			"description": "whether this comment indicates the resolution of the issue",
+			"type": "boolean"
+		}
+	},
+	"required": ["user_id", "comment", "resolved"]
 }
