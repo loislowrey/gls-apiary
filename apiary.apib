@@ -82,7 +82,7 @@ POST /chats
 {
 	"message": "some text here",
 	"userid": 1,
-	"recipients": [{"locationType": 1}, {"locationType": 2}, {'site_id': 1}],
+	"recipients": [{"site_type_id": 1, "site_time": "live"}, {"site_type_id": 2, "site_time": "live"}, {'site_id': 1}],
 	"broadcast_status_id": 1
 }
 < 204
@@ -96,7 +96,7 @@ GET /chats?user_id={1}
 		"user_name": "John Doe",
 		"message": "issue details",
 		"date": 1372535760,
-		"recipients": [{"locationType": 1}, {"locationType": 2}, {"site_id":1, "site_number":"87", "site_name":"First Church of Christ"}],
+		"recipients": [{"site_type_id": 1, "site_type": "premiere", site_time": "live"}, {"site_type_id": 2, "site_type": "special edition", "site_time": "live"}, {"site_id":1, "site_number":"87", "site_name":"First Church of Christ"}],
 		"type": "issue",
 		"meta_data":{
 			"issue_id":1,
@@ -115,7 +115,7 @@ GET /chats?user_id={1}
 		"user_name": "Jane Doe",
 		"message": "This is my chat text",
 		"date": 1372534777,
-		"recipients": [{"locationType": 1}, {"locationType": 2}, {"site_id":1, "site_number":"87", "site_name":"First Church of Christ"}],
+		"recipients": [{"site_type_id": 1, "site_type": "premiere", site_time": "live"}, {"site_type_id": 2, "site_type": "special edition", "site_time": "live"}, {"site_id":1, "site_number":"87", "site_name":"First Church of Christ"}],
 		"type": "chat"
 	},
 	{
@@ -123,7 +123,7 @@ GET /chats?user_id={1}
 		"user_name": "Jane Doorknob",
 		"message": "This is my chat text right here!!!",
 		"date": 1372534777,
-		"recipients": [{"locationType": 1}, {"locationType": 2}, {"site_id":1, "site_number":"87", "site_name":"First Church of Christ"}],
+		"recipients": [{"site_type_id": 1, "site_type": "premiere", site_time": "live"}, {"site_type_id": 2, "site_type": "special edition", "site_time": "live"}, {"site_id":1, "site_number":"87", "site_name":"First Church of Christ"}],
 		"type": "chat"
 	}
 ]}
