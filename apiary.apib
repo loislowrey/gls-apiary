@@ -1,6 +1,6 @@
 HOST: http://api.glsdashboard.com/
 
---- GLS Dashboard API v1.7.0 ---
+--- GLS Dashboard API v1.7.1 ---
 ---
 All comments can be written in (support [Markdown](http://daringfireball.net/projects/markdown/syntax) syntax)
 
@@ -91,15 +91,11 @@ GET /chats?user_id={1}
 {
 "count": 3,
 "items": [
-	{"id":1,"msg":"something"}, {"id":2,"msg":"something"}, {"id":3,"msg":"something"}
-]}
-
-/*
 	{
 		"id":3,
 		"user_name": "John Doe",
 		"message": "Some text here",
-		"date": "Wed Jun 13 2013 11:33:14 GMT-0400 (CDT)"
+		"date": "Wed Jun 13 2013 11:33:14 GMT-0400 (CDT)",
 		"recipients": [{'locationType': 1}, {'locationType': 2}, {"site_id":"sadfsasdf", "site_name":"First Church of Christ}],
 		"type": "issue",
 		"meta_data":{
@@ -117,7 +113,7 @@ GET /chats?user_id={1}
 		"id":2,
 		"user_name": "Jane Doe",
 		"message": "This is my chat text",
-		"date": "Wed Jun 12 2013 11:33:14 GMT-0400 (CDT)"
+		"date": "Wed Jun 12 2013 11:33:14 GMT-0400 (CDT)",
 		"recipients": [{'locationType': 1}, {'locationType': 2}, {"site_id":"sadfsasdf", "site_name":"First Church of Christ}],
 		"type": "chat"
 	},
@@ -125,11 +121,12 @@ GET /chats?user_id={1}
 		"id":1,
 		"user_name": "Jane Doorknob",
 		"message": "This is my chat text right here!!!",
-		"date": "Wed Jun 12 2013 10:33:14 GMT-0400 (CDT)"
+		"date": "Wed Jun 12 2013 10:33:14 GMT-0400 (CDT)",
 		"recipients": [{'locationType': 1}, {'locationType': 2}, {"site_id":"sadfsasdf", "site_name":"First Church of Christ}],
 		"type": "chat"
 	}
-	*/
+]}
+
 
 --
 Admin Settings
