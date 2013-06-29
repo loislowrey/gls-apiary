@@ -1,6 +1,6 @@
 HOST: http://api.glsdashboard.com/
 
---- GLS Dashboard API v1.7.2 ---
+--- GLS Dashboard API v1.7.3 ---
 ---
 All comments can be written in (support [Markdown](http://daringfireball.net/projects/markdown/syntax) syntax)
 
@@ -40,7 +40,8 @@ GET /issues
 { "items": [{
 	"id":1,
 	"created":"Wed Jun 12 2013 11:33:14 GMT-0400 (CDT)",
-	"site_id":"1",
+	"site_id":1,
+	"site_number":"87",
 	"site_name":"First Church of Christ",
 	"broadcast_status_id":1,
 	"broadcast_status":"Broadcasting Web Stream - Due to Weather",
@@ -79,7 +80,7 @@ POST /chats
 {
 	"message": "some text here",
 	"userid": 1,
-	"recipients": [{"locationType": 1}, {"locationType": 2}, {'locationId': 1}],
+	"recipients": [{"locationType": 1}, {"locationType": 2}, {'site_id': 1}],
 	"broadcast_status_id": 1
 }
 < 204
@@ -93,11 +94,12 @@ GET /chats?user_id={1}
 		"user_name": "John Doe",
 		"message": "Some text here",
 		"date": "Wed Jun 13 2013 11:33:14 GMT-0400 (CDT)",
-		"recipients": [{"locationType": 1}, {"locationType": 2}, {"site_id":"sadfsasdf", "site_name":"First Church of Christ"}],
+		"recipients": [{"locationType": 1}, {"locationType": 2}, {"site_id":1, "site_number":"87", "site_name":"First Church of Christ"}],
 		"type": "issue",
 		"meta_data":{
 			"issue_id":1,
 			"site_id":1,
+			"site_number":"87",
 			"site_name":"First Church of Christ",
 			"broadcast_status_id":1,
 			"broadcast_status":"Broadcasting Web Stream - Due to Weather",
@@ -111,7 +113,7 @@ GET /chats?user_id={1}
 		"user_name": "Jane Doe",
 		"message": "This is my chat text",
 		"date": "Wed Jun 12 2013 11:33:14 GMT-0400 (CDT)",
-		"recipients": [{"locationType": 1}, {"locationType": 2}, {"site_id":"sadfsasdf", "site_name":"First Church of Christ"}],
+		"recipients": [{"locationType": 1}, {"locationType": 2}, {"site_id":1, "site_number":"87", "site_name":"First Church of Christ"}],
 		"type": "chat"
 	},
 	{
@@ -119,7 +121,7 @@ GET /chats?user_id={1}
 		"user_name": "Jane Doorknob",
 		"message": "This is my chat text right here!!!",
 		"date": "Wed Jun 12 2013 10:33:14 GMT-0400 (CDT)",
-		"recipients": [{"locationType": 1}, {"locationType": 2}, {"site_id":"sadfsasdf", "site_name":"First Church of Christ"}],
+		"recipients": [{"locationType": 1}, {"locationType": 2}, {"site_id":1, "site_number":"87", "site_name":"First Church of Christ"}],
 		"type": "chat"
 	}
 ]}
@@ -238,7 +240,7 @@ GET /sites
 { "items": [
 	{
 		"id":1,
-		"site_id":"sadfsasdf",
+		"site_number":"87",
 		"site_name":"Willow Creek Community Church",
 		"site_type_id":1,
 		"site_type": "premiere",
@@ -258,7 +260,7 @@ Create new site
 POST /sites
 > Content-Type: application/json
 	{
-		"site_id":"sadfsasdf",
+		"site_number":"87",
 		"site_name":"Willow Creek Community Church",
 		"site_type_id":1,
 		"site_time":"live",
@@ -272,7 +274,7 @@ POST /sites
 { "items": [
 	{
 		"id":1,
-		"site_id":"sadfsasdf",
+		"site_number":"87",
 		"site_name":"Willow Creek Community Church",
 		"site_type_id":1,
 		"site_type": "premiere",
@@ -295,7 +297,7 @@ Update (200) or Create (201) a site
 PUT /sites/{id}
 > Content-Type: application/json
 {
-	"site_id":"sadfsasdf",
+	"site_number":"87",
 	"site_name":"Willow Creek Community Church",
 	"site_type_id":1,
 	"site_time":"live",
@@ -309,7 +311,7 @@ PUT /sites/{id}
 { "items": [
 	{
 		"id":1,
-		"site_id":"sadfsasdf",
+		"site_number":"87",
 		"site_name":"Willow Creek Community Church",
 		"site_type_id":1,
 		"site_type": "premiere",
@@ -327,7 +329,7 @@ PUT /sites/{id}
 < Content-Type: application/json
 { "items": [ {
 	"id":1,
-	"site_id":"sadfsasdf",
+	"site_number":"87",
 	"site_name":"Willow Creek Community Church",
 	"site_type_id":1,
 	"site_type": "premiere",
@@ -370,6 +372,7 @@ POST /login
 	"isAdmin":false,
 	"site":{
 		"id":1,
+		"site_number":"87",
 		"site_status_id":1,
 		"site_name":"Willow Creek Community Church",
 		"site_type_id":1,
@@ -415,6 +418,7 @@ GET /users
 	"isAdmin":false,
 	"site":{
 		"id":1,
+		"site_number":"87",
 		"site_name":"Willow Creek Community Church",
 		"site_type_id":1,
 		"site_type": "premiere",
@@ -440,6 +444,7 @@ GET /users/site/{site}
 	"isAdmin":false,
 	"site":{
 		"id":1,
+		"site_number":"87",
 		"site_name":"Willow Creek Community Church",
 		"site_type_id":1,
 		"site_type": "premiere",
@@ -467,6 +472,7 @@ GET /users/{1}
 	"site":{
 		"id":1,
 		"site_status_id":1,
+		"site_number":"87",
 		"site_name":"Willow Creek Community Church",
 		"site_type_id":1,
 		"site_type": "premiere",
@@ -508,6 +514,7 @@ POST /users
 	   "isAdmin":false,
 		"site":{
 			"id":1,
+			"site_number":"87",
 			"site_name":"Willow Creek Community Church",
 			"site_type_id":1,
 			"site_type": "premiere",
@@ -549,6 +556,7 @@ PUT /users/{id}
 	   "isAdmin":false,
 		"site":{
 			"id":1,
+			"site_number":"87",
 			"site_name":"Willow Creek Community Church",
 			"site_type_id":1,
 			"site_type": "premiere",
@@ -573,6 +581,7 @@ PUT /users/{id}
 	   "isAdmin":false,
 		"site":{
 			"id":1,
+			"site_number":"87",
 			"site_name":"Willow Creek Community Church",
 			"site_type_id":1,
 			"site_type": "premiere",
