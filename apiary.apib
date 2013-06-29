@@ -1,6 +1,6 @@
 HOST: http://api.glsdashboard.com/
 
---- GLS Dashboard API v1.6.9 ---
+--- GLS Dashboard API v1.7.0 ---
 ---
 All comments can be written in (support [Markdown](http://daringfireball.net/projects/markdown/syntax) syntax)
 
@@ -49,7 +49,7 @@ GET /issues
 }] }
 
 create an issue comment. This is how issues are resolved as well...
-POST /issue/{id}/comment
+POST /issues/{id}/comment
 > Content-Type: application/json
 {
 	"user_id":1,
@@ -74,7 +74,7 @@ This is subject to change once i start actually implementing chat...
 Send a chat message
 
 Create new issue if appropriate based on broadcast status_id (IF INCLUDED)
-POST /chat
+POST /chats
 > Content-Type: application/json
 {
 	"message": "some text here",
@@ -85,12 +85,15 @@ POST /chat
 < 204
 
 Retrieve chat messages applicable to user (includes chat sent directly to that user, to user's site and to all in user's site type, etc.). I'm thinking I'll handle pagination on client side
-GET /chats/{user_id}/
+GET /chats
 > Content-Type: application/json
+{
+	"user_id":1
+}
 < 200
 < Content-Type: application/json
 {
-"length": 3,
+"count": 3,
 "items": [
 	{
 		"id":3,
@@ -171,7 +174,7 @@ GET /site_types
 }] }
 
 Create new site type
-POST /site_type
+POST /site_types
 > Content-Type: application/json
 {
 	"site_type": "premiere",
@@ -194,7 +197,7 @@ POST /site_type
 ] }
 
 Update (200) or Create (201) a site type
-PUT /site_type/{id}
+PUT /site_types/{id}
 > Content-Type: application/json
 {
 	"site_type": "premiere",
@@ -260,7 +263,7 @@ GET /sites
 ] }
 
 Create new site
-POST /site
+POST /sites
 > Content-Type: application/json
 	{
 		"site_id":"sadfsasdf",
@@ -297,7 +300,7 @@ POST /site
 ] }
 
 Update (200) or Create (201) a site
-PUT /site/{id}
+PUT /sites/{id}
 > Content-Type: application/json
 {
 	"site_id":"sadfsasdf",
@@ -491,7 +494,7 @@ GET /users/{1}
 ] }
 
 Create new user
-POST /user
+POST /users
 > Content-Type: application/json
 {
 	"username":"jdoe",
@@ -531,7 +534,7 @@ POST /user
 ] }
 
 Update (200) or Create (201) a user
-PUT /user/{id}
+PUT /users/{id}
 > Content-Type: application/json
 {
 	"username":"jdoe",
@@ -597,7 +600,7 @@ PUT /user/{id}
 
 
 Delete user by id
-DELETE /user/{id}
+DELETE /users/{id}
 > Content-Type: application/json
 < 204
 +++++
@@ -649,7 +652,7 @@ GET /broadcast_statuses
 	"required": ["id", "open_issue", "status", "require_details", "marker_url"]
 }
 
-POST /issue/{id}/comment
+POST /issues/{id}/comment
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
 	"title": "Comment on an Issue",
