@@ -90,7 +90,14 @@ GET /chats/{user_id}/
 < 200
 < Content-Type: application/json
 {
-"count": 3,
+    "page": 1,
+    "pageSize": 50,
+    "count": 1,
+    "links": {
+        "self": {
+            "href": "/v1/applications?$page=1&$pagesize=50"
+        }
+    },
 "items": [
 	{
 		"id":3,
