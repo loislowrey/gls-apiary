@@ -1,6 +1,6 @@
 HOST: http://api.glsdashboard.com/
 
---- GLS Dashboard API v1.7.1 ---
+--- GLS Dashboard API v1.7.2 ---
 ---
 All comments can be written in (support [Markdown](http://daringfireball.net/projects/markdown/syntax) syntax)
 
@@ -88,8 +88,7 @@ Retrieve chat messages applicable to user (includes chat sent directly to that u
 GET /chats?user_id={1}
 < 200
 < Content-Type: application/json
-{"count": 3,
-"items": [{
+{"items": [{
 		"id":3,
 		"user_name": "John Doe",
 		"message": "Some text here",
