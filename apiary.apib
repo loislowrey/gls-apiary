@@ -272,7 +272,7 @@ GET /sites
 		"zipcode": "46221",
 		"lat": 234234,
 		"lon": 324325,
-		"markerURL": "http://www.google.com"
+		"marker_url": "http://www.google.com"
 	},
 	{
 		"id":2,
@@ -288,7 +288,7 @@ GET /sites
 		"zipcode": "46221",
 		"lat": 234234,
 		"lon": 324325,
-		"markerURL": "http://www.google.com"
+		"marker_url": "http://www.google.com"
 	},
 	{
 		"id":3,
@@ -304,7 +304,7 @@ GET /sites
 		"zipcode": "46221",
 		"lat": 234234,
 		"lon": 324325,
-		"markerURL": "http://www.google.com"
+		"marker_url": "http://www.google.com"
 	}
 ] }
 
@@ -337,7 +337,7 @@ POST /sites
 		"zipcode": "46221"
 		"lat": 234234,
 		"lon": 324325,
-		"markerURL": "http://www.google.com"
+		"marker_url": "http://www.google.com"
 	}] }
 +++++
 < 400
@@ -374,7 +374,7 @@ PUT /sites/{id}
 		"zipcode": "46221"
 		"lat": 234234,
 		"lon": 324325,
-		"markerURL": "http://www.google.com"
+		"marker_url": "http://www.google.com"
 	}] }
 +++++
 < 201
@@ -392,7 +392,7 @@ PUT /sites/{id}
 	"zipcode": "46221"
 	"lat": 234234,
 	"lon": 324325,
-	"markerURL": "http://www.google.com"
+	"marker_url": "http://www.google.com"
 }] }
 +++++
 < 400
@@ -421,7 +421,7 @@ POST /login
 	"email":"jdoe@gmail.com",
 	"full_name":"John Doe",
 	"mobile_phone":"555-555-5555",
-	"isAdmin":false,
+	"is_admin":false,
 	"site":{
 		"id":1,
 		"site_number":"87",
@@ -435,7 +435,7 @@ POST /login
 		"state": "Indiana",
 		"zipcode": "46221"
 	},
-	"profileUpdatePrompt": false
+	"profile_update_prompt": false
 }
 ] }
 +++++
@@ -467,7 +467,7 @@ GET /users
 	"email":"jdoe@gmail.com",
 	"full_name":"John Doe",
 	"mobile_phone":"555-555-5555",
-	"isAdmin":false,
+	"is_admin":false,
 	"site":{
 		"id":1,
 		"site_number":"87",
@@ -480,7 +480,7 @@ GET /users
 		"state": "Indiana",
 		"zipcode": "46221"
 	},
-	"profileUpdatePrompt": false
+	"profile_update_prompt": false
 }] }
 
 retrieve all users by site (location)
@@ -493,7 +493,7 @@ GET /users/site/{site}
 	"email":"jdoe@gmail.com",
 	"full_name":"John Doe",
 	"mobile_phone":"555-555-5555",
-	"isAdmin":false,
+	"is_admin":false,
 	"site":{
 		"id":1,
 		"site_number":"87",
@@ -506,7 +506,7 @@ GET /users/site/{site}
 		"state": "Indiana",
 		"zipcode": "46221"
 	},
-	"profileUpdatePrompt": false
+	"profile_update_prompt": false
 }] }
 
 
@@ -520,7 +520,7 @@ GET /users/{1}
 	"email":"jdoe@gmail.com",
 	"full_name":"John Doe",
 	"mobile_phone":"555-555-5555",
-	"isAdmin":false,
+	"is_admin":false,
 	"site":{
 		"id":1,
 		"site_status_id":1,
@@ -534,7 +534,7 @@ GET /users/{1}
 		"state": "Indiana",
 		"zipcode": "46221"
 	},
-	"profileUpdatePrompt": false
+	"profile_update_prompt": false
 }] }
 +++++
 < 400
@@ -551,7 +551,7 @@ POST /users
 	"email": "jdoe@gmail.com",
 	"full_name":"John Doe",
 	"mobile_phone":"555-555-5555",
-	"isAdmin": false,
+	"is_admin": false,
 	site_id: 1
 }
 < 201
@@ -563,7 +563,7 @@ POST /users
 	   "email":"jdoe@gmail.com",
        "full_name":"John Doe",
        "mobile_phone":"555-555-5555",
-	   "isAdmin":false,
+	   "is_admin":false,
 		"site":{
 			"id":1,
 			"site_number":"87",
@@ -576,7 +576,7 @@ POST /users
 			"state": "Indiana",
 			"zipcode": "46221"
 		},
-       "profileUpdatePrompt": false
+       "profile_update_prompt": false
 	}] }
 +++++
 < 400
@@ -593,7 +593,7 @@ PUT /users/{id}
 	"password": "password",
 	"full_name":"John Doe",
 	"mobile_phone":"555-555-5555",
-	"isAdmin": false,
+	"is_admin": false,
 	site_id: 1
 }
 < 200
@@ -605,7 +605,7 @@ PUT /users/{id}
 	   "email":"jdoe@gmail.com",
        "full_name":"John Doe",
        "mobile_phone":"555-555-5555",
-	   "isAdmin":false,
+	   "is_admin":false,
 		"site":{
 			"id":1,
 			"site_number":"87",
@@ -618,7 +618,7 @@ PUT /users/{id}
 			"state": "Indiana",
 			"zipcode": "46221"
 		},
-       "profileUpdatePrompt": false
+       "profile_update_prompt": false
 	}] }
 +++++
 < 201
@@ -630,7 +630,7 @@ PUT /users/{id}
 	   "email":"jdoe@gmail.com",
        "full_name":"John Doe",
        "mobile_phone":"555-555-5555",
-	   "isAdmin":false,
+	   "is_admin":false,
 		"site":{
 			"id":1,
 			"site_number":"87",
@@ -643,7 +643,7 @@ PUT /users/{id}
 			"state": "Indiana",
 			"zipcode": "46221"
 		},
-       "profileUpdatePrompt": false
+       "profile_update_prompt": false
 	}] }
 +++++
 < 400
