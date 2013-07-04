@@ -1,6 +1,6 @@
 HOST: http://api.glsdashboard.com/
 
---- GLS Dashboard API v1.7.8 ---
+--- GLS Dashboard API v1.7.9 ---
 ---
 All comments can be written in (support [Markdown](http://daringfireball.net/projects/markdown/syntax) syntax)
 
@@ -9,6 +9,30 @@ Blueprint controlled through a [github repo](https://github.com/cmcculloh/test-a
 [REST Spec](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)
 ---
 
+
+--
+Admin Settings
+--
+Retrieve Settings
+GET /settings
+> Content-Type: application/json
+< 200
+< Content-Type: application/json
+{ "items": [{
+	"logo":"data:image/png;base64,iVBORw0KGgoAAAANS...",
+	"welcome_subject":"blah lah blah",
+	"welcome_content":"afds asdf aafds asd fasdfasdf"
+}] }
+
+Update (200) or Create (201) admin settings
+PUT /settings
+> Content-Type: application/json
+{
+	"logo":"data:image/png;base64,iVBORw0KGgoAAAANS...",
+	"welcome_subject":"blah lah blah",
+	"welcome_content":"afds asdf aafds asd fasdfasdf"
+}
+< 204
 
 --
 Broadcast Statuses
@@ -29,63 +53,12 @@ GET /broadcast_statuses
 
 
 --
-Issues
-
-All timestamps in GMT and displayed to the user in their own local time.
---
-Retrieve Issues
-GET /issues
-> Content-Type: aplication/json
-{ "resolved": false }
-< 200
-< Content-Type: application/json
-{ "items": [{
-	"id":1,
-	"created": 1372534777,
-	"site_id":1,
-	"site_number":"87",
-	"site_name":"First Church of Christ",
-	"broadcast_status_id":1,
-	"broadcast_status":"Broadcasting Web Stream - Due to Weather",
-	"contact_person":"John Smith",
-	"contact_number":"555-555-1212",
-}] }
-
-create an issue comment. This is how issues are resolved as well...
-POST /issues/{id}/comment
-> Content-Type: application/json
-{
-	"user_id":1,
-	"comment": "adsfasdf adsfadsf asdfasdf",
-	"resolved":true
-}
-< 200
-< Content-Type: application/json
-+++++
-< 400
-{ "items": [
-{ "message": "please check your payload and try again" }
-] }
-
-
---
 Chat
 This is subject to change once i start actually implementing chat...
 
 "All Live" field would just contain a comma separated list of all llive location types that would then be broken out into the proper recipients
 --
-Send a chat message
 
-Create new issue if appropriate based on broadcast status_id (IF INCLUDED)
-POST /chats
-> Content-Type: application/json
-{
-	"message": "some text here",
-	"user_id": 1,
-	"recipients": [{"site_type_id": 1, "site_time": "live"}, {"site_type_id": 2, "site_time": "live"}, {"site_id": 1}],
-	"broadcast_status_id": 1
-}
-< 204
 
 Retrieve chat messages applicable to user (includes chat sent directly to that user, to user's site and to all in user's site type, etc.). I'm thinking I'll handle pagination on client side
 GET /chats?user_id={1}
@@ -129,122 +102,114 @@ GET /chats?user_id={1}
 ]}
 
 
---
-Admin Settings
---
-Retrieve Settings
-GET /settings
-> Content-Type: application/json
-< 200
-< Content-Type: application/json
-{ "items": [{
-	"logo":"data:image/png;base64,iVBORw0KGgoAAAANS...",
-	"welcome_subject":"blah lah blah",
-	"welcome_content":"afds asdf aafds asd fasdfasdf"
-}] }
 
-Update (200) or Create (201) admin settings
-PUT /settings
+Send a chat message
+
+Create new issue if appropriate based on broadcast_status_id (IF INCLUDED)
+POST /chats
 > Content-Type: application/json
 {
-	"logo":"data:image/png;base64,iVBORw0KGgoAAAANS...",
-	"welcome_subject":"blah lah blah",
-	"welcome_content":"afds asdf aafds asd fasdfasdf"
+	"message": "some text here",
+	"user_id": 1,
+	"recipients": [{"site_type_id": 1, "site_time": "live"}, {"site_type_id": 2, "site_time": "live"}, {"site_id": 1}],
+	"broadcast_status_id": 1
 }
 < 204
 
 
 --
-Site Types
+Issues
+
+All timestamps in GMT and displayed to the user in their own local time.
 --
-Retrieve Site Types
-GET /site_types
-> Content-Type: application/json
+Retrieve Issues
+GET /issues
+> Content-Type: aplication/json
+{ "resolved": false }
 < 200
 < Content-Type: application/json
 { "items": [{
-	"id": 1,
-	"site_type": "Premiere",
-	"live_info": "adsf asdf asdf asdfasf asd fasdf asd",
-	"delayed_info": "dfas afsddfw fwe w fasasdf asfa sdfawa w"
-},{
-	"id": 2,
-	"site_type": "Special Edition",
-	"live_info": "adsf asdf asdf asdfasf asd fasdf asd",
-	"delayed_info": "dfas afsddfw fwe w fasasdf asfa sdfawa w"
-},{
-	"id": 3,
-	"site_type": "Private Viewing",
-	"live_info": "adsf asdf asdf asdfasf asd fasdf asd",
-	"delayed_info": "dfas afsddfw fwe w fasasdf asfa sdfawa w"
+	"id":1,
+	"created": 1372534777,
+	"site_id":1,
+	"site_number":"87",
+	"site_name":"First Church of Christ",
+	"broadcast_status_id":1,
+	"broadcast_status":"Broadcasting Web Stream - Due to Weather",
+	"contact_person":"John Smith",
+	"contact_number":"555-555-1212",
 }] }
 
-Create new site type
-POST /site_types
+create an issue comment. This is how issues are resolved as well...
+POST /issues/{id}/comment
 > Content-Type: application/json
 {
-	"site_type": "premiere",
-	"live_info": "adsf asdf asdf asdfasf asd fasdf asd",
-	"delayed_info": "dfas afsddfw fwe w fasasdf asfa sdfawa w"
+	"user_id":1,
+	"comment": "adsfasdf adsfadsf asdfasdf",
+	"resolved":true
 }
-< 201
+< 200
 < Content-Type: application/json
-{ "items": [
-{
-	"id": 1,
-	"site_type": "premiere",
-	"live_info": "adsf asdf asdf asdfasf asd fasdf asd",
-	"delayed_info": "dfas afsddfw fwe w fasasdf asfa sdfawa w"
-}] }
 +++++
 < 400
 { "items": [
 { "message": "please check your payload and try again" }
 ] }
 
-Update (200) or Create (201) a site type
-PUT /site_types/{id}
+
+
+
+
+--
+Login
+--
+login a user
+POST /login
 > Content-Type: application/json
-{
-	"site_type": "premiere",
-	"live_info": "adsf asdf asdf asdfasf asd fasdf asd",
-	"delayed_info": "dfas afsddfw fwe w fasasdf asfa sdfawa w"
-}
+{ "username":"john@gmail.com", "userpassword": "password" }
 < 200
 < Content-Type: application/json
 { "items": [
 {
-	"id": 1,
-	"site_type": "premiere",
-	"live_info": "adsf asdf asdf asdfasf asd fasdf asd",
-	"delayed_info": "dfas afsddfw fwe w fasasdf asfa sdfawa w"
-}] }
-+++++
-< 201
-< Content-Type: application/json
-{ "items": [ {
-	"id": 1,
-	"site_type": "premiere",
-	"live_info": "adsf asdf asdf asdfasf asd fasdf asd",
-	"delayed_info": "dfas afsddfw fwe w fasasdf asfa sdfawa w"
-}] }
+	"id":1,
+	"username":"jdoe",
+	"email":"jdoe@gmail.com",
+	"full_name":"John Doe",
+	"mobile_phone":"555-555-5555",
+	"is_admin":false,
+	"site":{
+		"id":1,
+		"site_number":"87",
+		"site_status_id":1,
+		"site_name":"Willow Creek Community Church",
+		"site_type_id":1,
+		"site_type": "premiere",
+		"site_time":"live",
+		"address": "123 N Main Street",
+		"city": "Indianapolis",
+		"state": "Indiana",
+		"zipcode": "46221"
+	},
+	"profile_update_prompt": false
+}
+] }
 +++++
 < 400
 { "items": [
-	{ "message": "please check your payload and try again" }
+{ "message": "invalid username/password" }
 ] }
 
-Delete site_type by id
-DELETE /site_types/{id}
+
+--
+Reset Password
+--
+reset a user's password
+GET /reset-password
 > Content-Type: application/json
-< 204
-+++++
-< 400
-{ "items": [
-{ "message": "please provide site_types's id" }
-] }
+{ "email": "john@gmail.com" }
+< 205
 
-
+--
 
 
 
@@ -403,57 +368,99 @@ PUT /sites/{id}
 
 
 
-
-
 --
-Login
+Site Types
 --
-login a user
-POST /login
+Retrieve Site Types
+GET /site_types
 > Content-Type: application/json
-{ "username":"john@gmail.com", "userpassword": "password" }
+< 200
+< Content-Type: application/json
+{ "items": [{
+	"id": 1,
+	"site_type": "Premiere",
+	"live_info": "adsf asdf asdf asdfasf asd fasdf asd",
+	"delayed_info": "dfas afsddfw fwe w fasasdf asfa sdfawa w"
+},{
+	"id": 2,
+	"site_type": "Special Edition",
+	"live_info": "adsf asdf asdf asdfasf asd fasdf asd",
+	"delayed_info": "dfas afsddfw fwe w fasasdf asfa sdfawa w"
+},{
+	"id": 3,
+	"site_type": "Private Viewing",
+	"live_info": "adsf asdf asdf asdfasf asd fasdf asd",
+	"delayed_info": "dfas afsddfw fwe w fasasdf asfa sdfawa w"
+}] }
+
+Create new site type
+POST /site_types
+> Content-Type: application/json
+{
+	"site_type": "premiere",
+	"live_info": "adsf asdf asdf asdfasf asd fasdf asd",
+	"delayed_info": "dfas afsddfw fwe w fasasdf asfa sdfawa w"
+}
+< 201
+< Content-Type: application/json
+{ "items": [
+{
+	"id": 1,
+	"site_type": "premiere",
+	"live_info": "adsf asdf asdf asdfasf asd fasdf asd",
+	"delayed_info": "dfas afsddfw fwe w fasasdf asfa sdfawa w"
+}] }
++++++
+< 400
+{ "items": [
+{ "message": "please check your payload and try again" }
+] }
+
+Update (200) or Create (201) a site type
+PUT /site_types/{id}
+> Content-Type: application/json
+{
+	"site_type": "premiere",
+	"live_info": "adsf asdf asdf asdfasf asd fasdf asd",
+	"delayed_info": "dfas afsddfw fwe w fasasdf asfa sdfawa w"
+}
 < 200
 < Content-Type: application/json
 { "items": [
 {
-	"id":1,
-	"username":"jdoe",
-	"email":"jdoe@gmail.com",
-	"full_name":"John Doe",
-	"mobile_phone":"555-555-5555",
-	"is_admin":false,
-	"site":{
-		"id":1,
-		"site_number":"87",
-		"site_status_id":1,
-		"site_name":"Willow Creek Community Church",
-		"site_type_id":1,
-		"site_type": "premiere",
-		"site_time":"live",
-		"address": "123 N Main Street",
-		"city": "Indianapolis",
-		"state": "Indiana",
-		"zipcode": "46221"
-	},
-	"profile_update_prompt": false
-}
-] }
+	"id": 1,
+	"site_type": "premiere",
+	"live_info": "adsf asdf asdf asdfasf asd fasdf asd",
+	"delayed_info": "dfas afsddfw fwe w fasasdf asfa sdfawa w"
+}] }
++++++
+< 201
+< Content-Type: application/json
+{ "items": [ {
+	"id": 1,
+	"site_type": "premiere",
+	"live_info": "adsf asdf asdf asdfasf asd fasdf asd",
+	"delayed_info": "dfas afsddfw fwe w fasasdf asfa sdfawa w"
+}] }
 +++++
 < 400
 { "items": [
-{ "message": "invalid username/password" }
+	{ "message": "please check your payload and try again" }
 ] }
 
---
-Reset Password
---
-reset a user's password
-GET /reset-password
+Delete site_type by id
+DELETE /site_types/{id}
 > Content-Type: application/json
-{ "email": "john@gmail.com" }
-< 205
+< 204
++++++
+< 400
+{ "items": [
+{ "message": "please provide site_types's id" }
+] }
 
---
+
+
+
 Users
 The following is a section of resources related to users
 --
