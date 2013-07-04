@@ -1,6 +1,6 @@
 HOST: http://api.glsdashboard.com/
 
---- GLS Dashboard API v1.7.9 ---
+--- GLS Dashboard API v1.7.10 ---
 ---
 All comments can be written in (support [Markdown](http://daringfireball.net/projects/markdown/syntax) syntax)
 
@@ -66,7 +66,7 @@ GET /chats?user_id={1}
 < Content-Type: application/json
 {"items": [{
 		"id":3,
-		"user_name": "John Doe",
+		"username": "John Doe",
 		"message": "issue details",
 		"date": 1372535760,
 		"recipients": [{"site_type_id": 1, "site_type": "premiere", "site_time": "live"}, {"site_type_id": 2, "site_type": "special edition", "site_time": "live"}, {"site_id":1, "site_number":"87", "site_name":"First Church of Christ"}],
@@ -85,7 +85,7 @@ GET /chats?user_id={1}
 	},
 	{
 		"id":2,
-		"user_name": "Jane Doe",
+		"username": "Jane Doe",
 		"message": "This is my chat text",
 		"date": 1372534777,
 		"recipients": [{"site_type_id": 1, "site_type": "premiere", "site_time": "live"}, {"site_type_id": 2, "site_type": "special edition", "site_time": "live"}, {"site_id":1, "site_number":"87", "site_name":"First Church of Christ"}],
@@ -93,7 +93,7 @@ GET /chats?user_id={1}
 	},
 	{
 		"id":1,
-		"user_name": "Jane Doorknob",
+		"username": "Jane Doorknob",
 		"message": "This is my chat text right here!!!",
 		"date": 1372534777,
 		"recipients": [{"site_type_id": 1, "site_type": "premiere", "site_time": "live"}, {"site_type_id": 2, "site_type": "special edition", "site_time": "live"}, {"site_id":1, "site_number":"87", "site_name":"First Church of Christ"}],
