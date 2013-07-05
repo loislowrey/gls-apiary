@@ -42,13 +42,57 @@ GET /broadcast_statuses
 > Content-Type: aplication/json
 < 200
 < Content-Type: application/json
-{ "items": [{
-    "id":1,
-	"open_issue":false
-	"status":"Broadcasting Web Stream - Due to Weather",
-	"require_details": true,
-	"marker_url": "http://www.google.com"
-}] }
+{ "items": [
+	{
+		"id":1,
+		"open_issue":false,
+		"status":"Broadcasting Satellite Feed - All Systems Go!",
+		"require_details": false,
+		"marker_url": "http://www.google.com"
+	},
+	{
+		"id":2,
+		"open_issue":false,
+		"status":"Broadcasting Web Stream - Due to Weather",
+		"require_details": false,
+		"marker_url": "http://www.google.com"
+	},
+	{
+		"id":3,
+		"open_issue":true,
+		"status":"Broadcasting Web Stream - Due to Other",
+		"require_details": true,
+		"marker_url": "http://www.google.com"
+	},
+	{
+		"id":4,
+		"open_issue":true,
+		"status":"Rental Projector Issue (Premiere Only) - Still Broadcasting",
+		"require_details": true,
+		"marker_url": "http://www.google.com"
+	},
+	{
+		"id":5,
+		"open_issue":true,
+		"status":"Other",
+		"require_details": true,
+		"marker_url": "http://www.google.com"
+	},
+	{
+		"id":6,
+		"open_issue":true,
+		"status":"EMERGENCY - Offline",
+		"require_details": true,
+		"marker_url": "http://www.google.com"
+	},
+	{
+		"id":7,
+		"open_issue":false,
+		"status":"Offline - End of Day",
+		"require_details": false,
+		"marker_url": "http://www.google.com"
+	}
+] }
 
 
 
