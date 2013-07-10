@@ -1,6 +1,6 @@
 HOST: http://api.glsdashboard.com/api/v1/
 
---- GLS Dashboard API v1.7.12 ---
+--- GLS Dashboard API v1.7.13 ---
 ---
 All comments can be written in (support [Markdown](http://daringfireball.net/projects/markdown/syntax) syntax)
 
@@ -265,6 +265,37 @@ POST /login
 { "message": "invalid username/password" }
 ] }
 
+
+--
+Reporting
+--
+Currently, this is for the micro-report on the dashboard bottom right. May be expanded...
+
+Get basic metrics about current site statuses
+GET /reports/dashboard/overview
+> Content-Type: application/json
+< 200
+< Content-Type: application/json
+{ "items": [
+	[
+		'Sites Reporting',
+		'Online',
+		'Abnormal',
+		'Offline'
+	],
+	[
+		'Live',
+		138,
+		2,
+		0
+	],
+	[
+		'Delayed',
+		138,
+		2,
+		0
+	]
+] }
 
 --
 Reset Password
