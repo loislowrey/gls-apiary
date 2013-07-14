@@ -1,6 +1,6 @@
 HOST: http://api.glsdashboard.com/api/v1/
 
---- GLS Dashboard API v1.7.15 ---
+--- GLS Dashboard API v1.7.16 ---
 ---
 All comments can be written in (support [Markdown](http://daringfireball.net/projects/markdown/syntax) syntax)
 
@@ -149,7 +149,11 @@ GET /chats?user_id={1}
 
 Send a chat message
 
-Create new issue if appropriate based on broadcast_status_id (IF INCLUDED)
+Create new issue if appropriate based on broadcast_status_id (IF INCLUDED).
+
+The first payload below is an example of a chat, the second is an example of a broadcast_status change
+
+For an issue, the chat just goes to that specific site, so, recipients will just be the site_id of the sender
 POST /chats
 > Content-Type: application/json
 {
@@ -157,6 +161,13 @@ POST /chats
 	"user_id": 1,
 	"recipients": [{"site_type_id": 1, "site_time": "live"}, {"site_type_id": 2, "site_time": "live"}, {"site_id": 1}],
 	"type": "chat"
+},
+{
+	"message": "some text here",
+	"user_id": 1,
+	"recipients": [{"site_id": 1}],
+	"type": "issue",
+	"broadcast_status_id": 1
 }
 < 200
 < Content-Type: application/json
