@@ -1,6 +1,6 @@
 HOST: http://api.glsdashboard.com/api/v1/
 
---- GLS Dashboard API v1.8.0 ---
+--- GLS Dashboard API v1.8.1 ---
 ---
 All comments can be written in (support [Markdown](http://daringfireball.net/projects/markdown/syntax) syntax)
 
@@ -15,7 +15,7 @@ Admin Settings
 --
 Retrieve Settings
 GET /settings
-> Content-Type: application/json
+
 < 200
 < Content-Type: application/json
 { "items": [{
@@ -39,7 +39,7 @@ Broadcast Statuses
 --
 Retrieve broadcast statuses
 GET /broadcast_statuses
-> Content-Type: aplication/json
+
 < 200
 < Content-Type: application/json
 { "items": [
@@ -278,7 +278,7 @@ Currently, this is for the micro-report on the dashboard bottom right. May be ex
 
 Get basic metrics about current site statuses
 GET /reports/dashboard/overview
-> Content-Type: application/json
+
 < 200
 < Content-Type: application/json
 { "items": [
@@ -306,9 +306,7 @@ GET /reports/dashboard/overview
 Reset Password
 --
 reset a user's password
-GET /reset-password
-> Content-Type: application/json
-{ "email": "john@gmail.com" }
+GET /reset-password?email={email}
 < 205
 
 
@@ -318,7 +316,6 @@ Sites
 --
 Retrieve Sites
 GET /sites
-> Content-Type: application/json
 < 200
 < Content-Type: application/json
 { "items": [
@@ -472,7 +469,7 @@ Site Types
 --
 Retrieve Site Types
 GET /site_types
-> Content-Type: application/json
+
 < 200
 < Content-Type: application/json
 { "items": [{
