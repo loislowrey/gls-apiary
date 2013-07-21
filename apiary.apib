@@ -208,19 +208,37 @@ GET /issues?resolved={false}
 	"site_name":"First Church of Christ"
 }] }
 
-POST /issues/{id}
-> Content-Type: application/json
-{
-	"broadcast_status_id":1
-}
+Retrieve a single issue, also getting its comments.
+
+If a comment represents the resolution of the issue, include a 'resolution' param set to true.
+GET /issues/{id}
 < 200
 < Content-Type: application/json
-+++++
-< 400
 { "items": [
-{ "message": "please check your payload and try again" }
+	{
+		"id":1,
+		"full_name": "Jane Doorknob",
+		"message": "Changed status to Broadcasting Web Stream - Due to Weather",
+		"date": 1372534777,
+		"mobile_phone": "555-123-1233",
+		"email": "jdoe@gmail.com"
+	},
+	{
+		"id":2,
+		"full_name": "Shana Case",
+		"message": "I called and talked with John. Thunderstorms are moving through and should be done in 15 minutes.",
+		"date": 1372534777
+	},
+	{
+		"id":3,
+		"full_name": "Jane Doorknob",
+		"message": "Changed broadcast status to Broadcasting Satellite Feed",
+		"date": 1372534777,
+		"mobile_phone": "555-123-1233",
+		"email": "jdoe@gmail.com",
+		"resolution": true
+	}
 ] }
-
 
 create an issue comment. This is how issues are resolved as well...
 POST /issues/{id}/comment
