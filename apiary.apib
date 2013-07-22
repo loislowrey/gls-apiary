@@ -1,6 +1,6 @@
 HOST: http://api.glsdashboard.com/api/v1/
 
---- GLS Dashboard API v1.8.3 ---
+--- GLS Dashboard API v1.8.4 ---
 ---
 All comments can be written in (support [Markdown](http://daringfireball.net/projects/markdown/syntax) syntax)
 
@@ -254,7 +254,7 @@ GET /issues/{id}
 }
 
 create an issue comment. This is how issues are resolved as well...
-POST /issues/{id}/comment
+POST /issues/{id}/comments
 > Content-Type: application/json
 {
 	"user_id":1,
@@ -263,6 +263,15 @@ POST /issues/{id}/comment
 }
 < 200
 < Content-Type: application/json
+{
+	"id":4,
+	"full_name": "Jane Doorknob",
+	"message": "Changed broadcast status to Broadcasting Satellite Feed",
+	"date": 1372534777,
+	"mobile_phone": "555-123-1233",
+	"email": "jdoe@gmail.com",
+	"resolution": true
+}
 +++++
 < 400
 { "items": [
