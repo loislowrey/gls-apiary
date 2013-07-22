@@ -1,6 +1,6 @@
 HOST: http://api.glsdashboard.com/api/v1/
 
---- GLS Dashboard API v1.8.2 ---
+--- GLS Dashboard API v1.8.3 ---
 ---
 All comments can be written in (support [Markdown](http://daringfireball.net/projects/markdown/syntax) syntax)
 
@@ -214,31 +214,44 @@ If a comment represents the resolution of the issue, include a 'resolution' para
 GET /issues/{id}
 < 200
 < Content-Type: application/json
-{ "items": [
-	{
-		"id":1,
-		"full_name": "Jane Doorknob",
-		"message": "Changed status to Broadcasting Web Stream - Due to Weather",
-		"date": 1372534777,
-		"mobile_phone": "555-123-1233",
-		"email": "jdoe@gmail.com"
-	},
-	{
-		"id":2,
-		"full_name": "Shana Case",
-		"message": "I called and talked with John. Thunderstorms are moving through and should be done in 15 minutes.",
-		"date": 1372534777
-	},
-	{
-		"id":3,
-		"full_name": "Jane Doorknob",
-		"message": "Changed broadcast status to Broadcasting Satellite Feed",
-		"date": 1372534777,
-		"mobile_phone": "555-123-1233",
-		"email": "jdoe@gmail.com",
-		"resolution": true
-	}
-] }
+{
+	"id":1,
+	"broadcast_status_id":1,
+	"broadcast_status":"Broadcasting Web Stream - Due to Weather",
+	"contact_person":"John Smith",
+	"contact_number":"555-556-1212",
+	"created": 1372534777,
+	"last_activity": 1372534988,
+	"resolved": false,
+	"site_id":1,
+	"site_number":"87",
+	"site_name":"First Church of Christ"
+	"comments": [
+		{
+			"id":1,
+			"full_name": "Jane Doorknob",
+			"message": "Changed status to Broadcasting Web Stream - Due to Weather",
+			"date": 1372534777,
+			"mobile_phone": "555-123-1233",
+			"email": "jdoe@gmail.com"
+		},
+		{
+			"id":2,
+			"full_name": "Shana Case",
+			"message": "I called and talked with John. Thunderstorms are moving through and should be done in 15 minutes.",
+			"date": 1372534777
+		},
+		{
+			"id":3,
+			"full_name": "Jane Doorknob",
+			"message": "Changed broadcast status to Broadcasting Satellite Feed",
+			"date": 1372534777,
+			"mobile_phone": "555-123-1233",
+			"email": "jdoe@gmail.com",
+			"resolution": true
+		}
+	]
+}
 
 create an issue comment. This is how issues are resolved as well...
 POST /issues/{id}/comment
