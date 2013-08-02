@@ -9,15 +9,16 @@ Blueprint controlled through a [github repo](https://github.com/cmcculloh/test-a
 [REST Spec](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)
 ---
 
---- Page startup routes ---
----
+--
+Page startup routes
+--
 rather than calling each route needed for the data for a page when it is starting up, these routes consolidate
 calls needed to load a page to one single call that returns all data
----
 
---
+
+-
 Dashboard
---
+-
 Get all data required to laod the dashboard.
 Defaults: resolved=false for issues, page=1 & items_per_page=10 for chats
 GET /startup/dashboard?user_id={user_id}
