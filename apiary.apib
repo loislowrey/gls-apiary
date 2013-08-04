@@ -631,6 +631,146 @@ GET /reports/dashboard/overview
 	]
 ] }
 
+Get all reports for reporting page
+GET /reports/reporting
+< 200
+< Content-Type: application/json
+{ "items": [
+	{
+		"id":1,
+		"name":"Broadcasting Web Stream - Due to Weather",
+		"items":[
+			{
+				"id": 1,
+				"name": "All Sites"
+				"items":[
+					[
+						"Total Minutes:",
+						35
+					],
+					[
+						"Min Minutes:",
+						1
+					],
+					[
+						"Median Minutes:",
+						5
+					]
+				]
+			},
+			{
+				"id": 2,
+				"name": "Premiere Sites"
+				"items":[
+					[
+						"Total Minutes:",
+						35
+					],
+					[
+						"Min Minutes:",
+						1
+					],
+					[
+						"Median Minutes:",
+						5
+					]
+				]
+			}
+		]
+	},
+	{
+		"id":3,
+		"name":"Rental Projector Issue",
+		"items":[
+			{
+				"id": 1,
+				"name": "All Sites"
+				"items":[
+					[
+						"Total Minutes:",
+						35
+					],
+					[
+						"Min Minutes:",
+						1
+					],
+					[
+						"Median Minutes:",
+						5
+					]
+				]
+			},
+			{
+				"id": 2,
+				"name": "Premiere Sites"
+				"items":[
+					[
+						"Total Minutes:",
+						35
+					],
+					[
+						"Min Minutes:",
+						1
+					],
+					[
+						"Median Minutes:",
+						5
+					]
+				]
+			}
+		]
+	}
+]}
+
+Get specific report for reporting page
+GET /reports/reporting/{id}
+< 200
+< Content-Type: application/json
+{
+	"id":1,
+	"name":"Broadcasting Web Stream - Due to Weather",
+	"items":[
+		{
+			"id": 1,
+			"name": "All Sites"
+			"items":[
+				[
+					"Total Minutes:",
+					35
+				],
+				[
+					"Min Minutes:",
+					1
+				],
+				[
+					"Median Minutes:",
+					5
+				]
+			]
+		},
+		{
+			"id": 2,
+			"name": "Premiere Sites"
+			"items":[
+				[
+					"Total Minutes:",
+					35
+				],
+				[
+					"Min Minutes:",
+					1
+				],
+				[
+					"Median Minutes:",
+					5
+				]
+			]
+		}
+	]
+}
+
+
+
 --
 Reset Password
 --
