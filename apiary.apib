@@ -134,7 +134,8 @@ GET /startup/dashboard?user_id={user_id}
 				"zipcode": "46221",
 				"latitude": 41.850033,
 				"longitude": -87.65005229999997,
-				"marker_url": "http://maps.google.com/mapfiles/kml/paddle/grn-blank.png"
+				"marker_url": "http://maps.google.com/mapfiles/kml/paddle/grn-blank.png",
+				"hd": true
 			},
 			{
 				"id":2,
@@ -150,7 +151,8 @@ GET /startup/dashboard?user_id={user_id}
 				"zipcode": "46221",
 				"latitude": 40.0150,
 				"longitude": -105.2700,
-				"marker_url": "http://maps.google.com/mapfiles/kml/paddle/purple-blank.png"
+				"marker_url": "http://maps.google.com/mapfiles/kml/paddle/purple-blank.png",
+				"hd": false
 			},
 			{
 				"id":3,
@@ -166,7 +168,8 @@ GET /startup/dashboard?user_id={user_id}
 				"zipcode": "46221",
 				"latitude": 33.890542,
 				"longitude": -111.274856,
-				"marker_url": "http://maps.google.com/mapfiles/kml/paddle/blu-blank.png"
+				"marker_url": "http://maps.google.com/mapfiles/kml/paddle/blu-blank.png",
+				"hd": false
 			}
 		]
 	},
@@ -241,6 +244,20 @@ GET /startup/dashboard?user_id={user_id}
 				"open_issue":false,
 				"status":"Offline - End of Day",
 				"require_details": false,
+				"marker_url": "http://www.google.com"
+			},
+			{
+				"id":8,
+				"open_issue":true,
+				"status":"Closed Captioning",
+				"require_details": true,
+				"marker_url": "http://www.google.com"
+			},
+			{
+				"id":9,
+				"open_issue":true,
+				"status":"Language Translation",
+				"require_details": true,
 				"marker_url": "http://www.google.com"
 			}
 		]
@@ -367,6 +384,20 @@ GET /broadcast_statuses
 		"open_issue":false,
 		"status":"Offline - End of Day",
 		"require_details": false,
+		"marker_url": "http://www.google.com"
+	},
+	{
+		"id":8,
+		"open_issue":true,
+		"status":"Closed Captioning",
+		"require_details": true,
+		"marker_url": "http://www.google.com"
+	},
+	{
+		"id":9,
+		"open_issue":true,
+		"status":"Language Translation",
+		"require_details": true,
 		"marker_url": "http://www.google.com"
 	}
 ] }
@@ -803,7 +834,8 @@ GET /sites
 		"zipcode": "46221",
 		"latitude": 41.850033,
 		"longitude": -87.65005229999997,
-		"marker_url": "http://maps.google.com/mapfiles/kml/paddle/grn-blank.png"
+		"marker_url": "http://maps.google.com/mapfiles/kml/paddle/grn-blank.png",
+		"hd": true
 	},
 	{
 		"id":2,
@@ -819,7 +851,8 @@ GET /sites
 		"zipcode": "46221",
 		"latitude": 40.0150,
 		"longitude": -105.2700,
-		"marker_url": "http://maps.google.com/mapfiles/kml/paddle/purple-blank.png"
+		"marker_url": "http://maps.google.com/mapfiles/kml/paddle/purple-blank.png",
+		"hd": false
 	},
 	{
 		"id":3,
@@ -835,7 +868,8 @@ GET /sites
 		"zipcode": "46221",
 		"latitude": 33.890542,
 		"longitude": -111.274856,
-		"marker_url": "http://maps.google.com/mapfiles/kml/paddle/blu-blank.png"
+		"marker_url": "http://maps.google.com/mapfiles/kml/paddle/blu-blank.png",
+		"hd": false
 	}
 ] }
 
@@ -868,7 +902,8 @@ POST /sites
 		"zipcode": "46221"
 		"latitude": 234234,
 		"longitude": 324325,
-		"marker_url": "http://www.google.com"
+		"marker_url": "http://www.google.com",
+		"hd": true
 	}] }
 +++++
 < 400
@@ -905,7 +940,8 @@ PUT /sites/{id}
 		"zipcode": "46221"
 		"latitude": 234234,
 		"longitude": 324325,
-		"marker_url": "http://www.google.com"
+		"marker_url": "http://www.google.com",
+		"hd": true
 	}] }
 +++++
 < 201
@@ -923,7 +959,8 @@ PUT /sites/{id}
 	"zipcode": "46221"
 	"latitude": 234234,
 	"longitude": 324325,
-	"marker_url": "http://www.google.com"
+	"marker_url": "http://www.google.com",
+	"hd": true
 }] }
 +++++
 < 400
@@ -1112,7 +1149,7 @@ GET /users/{1}
 < 400
 < Content-Type: application/json
 { "items": [
-    { "message": "Please provide a user's id" }
+	{ "message": "Please provide a user's id" }
 ] }
 
 Create new user
@@ -1129,12 +1166,12 @@ POST /users
 < 201
 < Content-Type: application/json
 { "items": [
-    {
+	{
 	   "id":1,
 	   "username":"jdoe",
 	   "email":"jdoe@gmail.com",
-       "full_name":"John Doe",
-       "mobile_phone":"555-555-5555",
+	   "full_name":"John Doe",
+	   "mobile_phone":"555-555-5555",
 	   "is_admin":false,
 		"site":{
 			"id":1,
@@ -1148,7 +1185,7 @@ POST /users
 			"state": "Indiana",
 			"zipcode": "46221"
 		},
-       "profile_update_prompt": false
+	   "profile_update_prompt": false
 	}] }
 +++++
 < 400
@@ -1172,11 +1209,11 @@ PUT /users/{id}
 < Content-Type: application/json
 { "items": [
 {
-       "id":1,
+	   "id":1,
 	   "username":"jdoe",
 	   "email":"jdoe@gmail.com",
-       "full_name":"John Doe",
-       "mobile_phone":"555-555-5555",
+	   "full_name":"John Doe",
+	   "mobile_phone":"555-555-5555",
 	   "is_admin":false,
 		"site":{
 			"id":1,
@@ -1190,18 +1227,18 @@ PUT /users/{id}
 			"state": "Indiana",
 			"zipcode": "46221"
 		},
-       "profile_update_prompt": false
+	   "profile_update_prompt": false
 	}] }
 +++++
 < 201
 < Content-Type: application/json
 { "items": [
 {
-       "id":1,
+	   "id":1,
 	   "username":"jdoe",
 	   "email":"jdoe@gmail.com",
-       "full_name":"John Doe",
-       "mobile_phone":"555-555-5555",
+	   "full_name":"John Doe",
+	   "mobile_phone":"555-555-5555",
 	   "is_admin":false,
 		"site":{
 			"id":1,
@@ -1215,7 +1252,7 @@ PUT /users/{id}
 			"state": "Indiana",
 			"zipcode": "46221"
 		},
-       "profile_update_prompt": false
+	   "profile_update_prompt": false
 	}] }
 +++++
 < 400
@@ -1237,7 +1274,7 @@ DELETE /users/{id}
 -- JSON Schema Validations --
 GET /broadcast_statuses
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
+	"$schema": "http://json-schema.org/draft-04/schema#",
 	"title": "Broadcast Statuses Set",
 	"type": "array",
 	"items": {
@@ -1279,7 +1316,7 @@ GET /broadcast_statuses
 
 POST /issues/{id}/comment
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
+	"$schema": "http://json-schema.org/draft-04/schema#",
 	"title": "Comment on an Issue",
 	"type": "object",
 	"properties": {
