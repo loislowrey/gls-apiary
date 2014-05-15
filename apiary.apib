@@ -41,7 +41,8 @@ GET /startup/dashboard?user_id={user_id}
 					"site_name":"First Church of Christ",
 					"broadcast_status_id":1,
 					"broadcast_status":"Broadcasting Web Stream - Due to Weather",
-					"details":"issue details"
+					"details":"issue details",
+					"hd":false
 				}
 			},
 			{
@@ -275,7 +276,8 @@ GET /startup/dashboard?user_id={user_id}
 				"resolved": false,
 				"site_id":1,
 				"site_number":"87",
-				"site_name":"First Church of Christ"
+				"site_name":"First Church of Christ",
+				"hd":false
 			}
 		]
 	},
@@ -430,7 +432,8 @@ GET /chats?user_id={1}&page={1}&items_per_page={10}
 			"site_name":"First Church of Christ",
 			"broadcast_status_id":1,
 			"broadcast_status":"Broadcasting Web Stream - Due to Weather",
-			"details":"issue details"
+			"details":"issue details",
+			"hd":false
 		}
 	},
 	{
@@ -515,7 +518,8 @@ GET /issues?resolved={false}
 	"resolved": false,
 	"site_id":1,
 	"site_number":"87",
-	"site_name":"First Church of Christ"
+	"site_name":"First Church of Christ",
+	"hd":false
 }] }
 
 Retrieve a single issue, also getting its comments.
@@ -535,7 +539,8 @@ GET /issues/{id}
 	"resolved": false,
 	"site_id":1,
 	"site_number":"87",
-	"site_name":"First Church of Christ"
+	"site_name":"First Church of Christ",
+	"hd":false
 	"comments": [
 		{
 			"id":1,
@@ -621,7 +626,8 @@ POST /login
 		"address": "123 N Main Street",
 		"city": "Indianapolis",
 		"state": "Indiana",
-		"zipcode": "46221"
+		"zipcode": "46221",
+		"hd":false
 	},
 	"profile_update_prompt": false
 }
@@ -884,7 +890,8 @@ POST /sites
 		"address": "123 N Main Street",
 		"city": "Indianapolis",
 		"state": "Indiana",
-		"zipcode": "46221"
+		"zipcode": "46221",
+		"hd":true
 	}
 < 201
 < Content-Type: application/json
@@ -922,7 +929,8 @@ PUT /sites/{id}
 	"address": "123 N Main Street",
 	"city": "Indianapolis",
 	"state": "Indiana",
-	"zipcode": "46221"
+	"zipcode": "46221",
+	"hd":true
 }
 < 200
 < Content-Type: application/json
@@ -1087,7 +1095,8 @@ GET /users
 		"address": "123 N Main Street",
 		"city": "Indianapolis",
 		"state": "Indiana",
-		"zipcode": "46221"
+		"zipcode": "46221",
+		"hd":false
 	},
 	"profile_update_prompt": false
 }] }
@@ -1113,7 +1122,8 @@ GET /users/site/{site}
 		"address": "123 N Main Street",
 		"city": "Indianapolis",
 		"state": "Indiana",
-		"zipcode": "46221"
+		"zipcode": "46221",
+		"hd":false
 	},
 	"profile_update_prompt": false
 }] }
@@ -1143,7 +1153,8 @@ GET /users/{1}
 		"address": "123 N Main Street",
 		"city": "Indianapolis",
 		"state": "Indiana",
-		"zipcode": "46221"
+		"zipcode": "46221",
+		"hd":false
 	},
 	"profile_update_prompt": false
 }] }
@@ -1185,7 +1196,8 @@ POST /users
 			"address": "123 N Main Street",
 			"city": "Indianapolis",
 			"state": "Indiana",
-			"zipcode": "46221"
+			"zipcode": "46221",
+			"hd":false
 		},
 	   "profile_update_prompt": false
 	}] }
@@ -1227,7 +1239,8 @@ PUT /users/{id}
 			"address": "123 N Main Street",
 			"city": "Indianapolis",
 			"state": "Indiana",
-			"zipcode": "46221"
+			"zipcode": "46221",
+			"hd":false
 		},
 	   "profile_update_prompt": false
 	}] }
@@ -1252,7 +1265,8 @@ PUT /users/{id}
 			"address": "123 N Main Street",
 			"city": "Indianapolis",
 			"state": "Indiana",
-			"zipcode": "46221"
+			"zipcode": "46221",
+			"hd":false
 		},
 	   "profile_update_prompt": false
 	}] }
