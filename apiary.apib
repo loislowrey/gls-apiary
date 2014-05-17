@@ -410,7 +410,7 @@ GET /broadcast_statuses
 Chat
 This is subject to change once i start actually implementing chat...
 
-"All Live" field would just contain a comma separated list of all llive location types that would then be broken out into the proper recipients
+"All Live" field would just contain a comma separated list of all live location types that would then be broken out into the proper recipients
 --
 
 
@@ -418,7 +418,15 @@ Retrieve chat messages applicable to user (includes chat sent directly to that u
 GET /chats?user_id={1}&page={1}&items_per_page={10}
 < 200
 < Content-Type: application/json
-{"items": [{
+{"items": [
+	{
+		"id":4,
+		"full_name": "Jane Doe",
+		"message": "This is my question",
+		"date": 1372980769,
+		"recipients": [{"site_id":0, "site_number":"0", "site_name":"Willow Creek"}],
+		"type": "question"
+	},{
 		"id":3,
 		"full_name": "John Doe",
 		"message": "issue details",
@@ -487,20 +495,11 @@ POST /chats
 < Content-Type: application/json
 {
 	"id":4,
-	"full_name": "John Doe",
-	"message": "issue details",
-	"date": 1372535760,
-	"recipients": [{"site_id":1, "site_number":"87", "site_name":"First Church of Christ"}],
-	"type": "issue",
-	"meta_data":{
-		"issue_id":2,
-		"site_id":1,
-		"site_number":"87",
-		"site_name":"First Church of Christ",
-		"broadcast_status_id":1,
-		"broadcast_status":"Broadcasting Web Stream - Due to Other",
-		"details":"issue details"
-	}
+	"full_name": "Jane Doe",
+	"message": "This is my question",
+	"date": 1372980769,
+	"recipients": [{"site_id":0, "site_number":"0", "site_name":"Willow Creek"}],
+	"type": "question"
 }
 
 --
