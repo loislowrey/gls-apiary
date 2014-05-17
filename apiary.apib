@@ -421,11 +421,14 @@ GET /chats?user_id={1}&page={1}&items_per_page={10}
 {"items": [
 	{
 		"id":4,
-		"full_name": "Jane Doe",
-		"message": "This is my question",
-		"date": 1372980769,
+		"full_name": "John Doe",
+		"message": "this is my question",
+		"date": 1372535760,
 		"recipients": [{"site_id":0, "site_number":"0", "site_name":"Willow Creek"}],
-		"type": "question"
+		"type": "question",
+		"meta_data":{
+			"site_id":1,
+		}
 	},{
 		"id":3,
 		"full_name": "John Doe",
@@ -489,17 +492,21 @@ POST /chats
 {
 	"message": "my question here",
 	"user_id": 1,
+	"recipients": [{"site_id": 0}],
 	"type": "question"
 }
 < 200
 < Content-Type: application/json
 {
 	"id":4,
-	"full_name": "Jane Doe",
-	"message": "This is my question",
-	"date": 1372980769,
-	"recipients": [{"site_id":0, "site_number":"0", "site_name":"Willow Creek"}],
-	"type": "question"
+	"full_name": "John Doe",
+	"message": "this is my question",
+	"date": 1372535760,
+	"recipients": [{"site_id":0}],
+	"type": "question",
+	"meta_data":{
+		"site_id":1,
+	}
 }
 
 --
