@@ -60,7 +60,7 @@ GET /startup/dashboard?user_id={user_id}
 							"city": "Indianapolis",
 							"state": "Indiana",
 							"zipcode": "46221",
-							"is_hd":false
+							"hd":false
 						},
 						"profile_update_prompt": false
 					}
@@ -157,7 +157,7 @@ GET /startup/dashboard?user_id={user_id}
 				"latitude": 41.850033,
 				"longitude": -87.65005229999997,
 				"marker_url": "http://maps.google.com/mapfiles/kml/paddle/grn-blank.png",
-				"is_hd": true,
+				"hd": true,
 				"users": [
 					{
 						"id":1,
@@ -183,7 +183,7 @@ GET /startup/dashboard?user_id={user_id}
 				"latitude": 40.0150,
 				"longitude": -105.2700,
 				"marker_url": "http://maps.google.com/mapfiles/kml/paddle/purple-blank.png",
-				"is_hd": false,
+				"hd": false,
 				"users": [
 					{
 						"id":1,
@@ -209,7 +209,7 @@ GET /startup/dashboard?user_id={user_id}
 				"latitude": 33.890542,
 				"longitude": -111.274856,
 				"marker_url": "http://maps.google.com/mapfiles/kml/paddle/blu-blank.png",
-				"is_hd": false,
+				"hd": false,
 				"users": [
 					{
 						"id":1,
@@ -325,7 +325,7 @@ GET /startup/dashboard?user_id={user_id}
 				"site_id":1,
 				"site_number":"87",
 				"site_name":"First Church of Christ",
-				"is_hd":false
+				"hd":false
 			}
 		]
 	},
@@ -510,7 +510,7 @@ GET /chats?user_id={1}&page={1}&items_per_page={10}
 					"city": "Indianapolis",
 					"state": "Indiana",
 					"zipcode": "46221",
-					"is_hd":false
+					"hd":false
 				},
 				"profile_update_prompt": false
 			}
@@ -599,7 +599,7 @@ GET /issues?resolved={false}
 	"site_id":1,
 	"site_number":"87",
 	"site_name":"First Church of Christ",
-	"is_hd":false
+	"hd":false
 }] }
 
 Retrieve a single issue, also getting its comments.
@@ -620,7 +620,7 @@ GET /issues/{id}
 	"site_id":1,
 	"site_number":"87",
 	"site_name":"First Church of Christ",
-	"is_hd":false
+	"hd":false
 	"comments": [
 		{
 			"id":1,
@@ -707,7 +707,7 @@ POST /login
 		"city": "Indianapolis",
 		"state": "Indiana",
 		"zipcode": "46221",
-		"is_hd":false
+		"hd":false
 	},
 	"profile_update_prompt": false
 }
@@ -921,7 +921,7 @@ GET /sites
 		"latitude": 41.850033,
 		"longitude": -87.65005229999997,
 		"marker_url": "http://maps.google.com/mapfiles/kml/paddle/grn-blank.png",
-		"is_hd": true,
+		"hd": true,
 		"users": [
 			{
 				"id":1,
@@ -947,7 +947,7 @@ GET /sites
 		"latitude": 40.0150,
 		"longitude": -105.2700,
 		"marker_url": "http://maps.google.com/mapfiles/kml/paddle/purple-blank.png",
-		"is_hd": false,
+		"hd": false,
 		"users": [
 			{
 				"id":1,
@@ -973,7 +973,7 @@ GET /sites
 		"latitude": 33.890542,
 		"longitude": -111.274856,
 		"marker_url": "http://maps.google.com/mapfiles/kml/paddle/blu-blank.png",
-		"is_hd": false,
+		"hd": false,
 		"users": [
 			{
 				"id":1,
@@ -998,7 +998,7 @@ POST /sites
 		"city": "Indianapolis",
 		"state": "Indiana",
 		"zipcode": "46221",
-		"is_hd":true
+		"hd":true
 	}
 < 201
 < Content-Type: application/json
@@ -1017,7 +1017,7 @@ POST /sites
 		"latitude": 234234,
 		"longitude": 324325,
 		"marker_url": "http://www.google.com",
-		"is_hd": true,
+		"hd": true,
 		"users": [
 			{
 				"id":1,
@@ -1046,7 +1046,7 @@ PUT /sites/{id}
 	"city": "Indianapolis",
 	"state": "Indiana",
 	"zipcode": "46221",
-	"is_hd":true
+	"hd":true
 }
 < 200
 < Content-Type: application/json
@@ -1065,7 +1065,7 @@ PUT /sites/{id}
 		"latitude": 234234,
 		"longitude": 324325,
 		"marker_url": "http://www.google.com",
-		"is_hd": true,
+		"hd": true,
 		"users": [
 			{
 				"id":1,
@@ -1093,7 +1093,7 @@ PUT /sites/{id}
 	"latitude": 234234,
 	"longitude": 324325,
 	"marker_url": "http://www.google.com",
-	"is_hd": true,
+	"hd": true,
 		"users": [
 			{
 				"id":1,
@@ -1230,7 +1230,7 @@ GET /users
 		"city": "Indianapolis",
 		"state": "Indiana",
 		"zipcode": "46221",
-		"is_hd":false
+		"hd":false
 	},
 	"profile_update_prompt": false
 }] }
@@ -1257,7 +1257,7 @@ GET /users/site/{site}
 		"city": "Indianapolis",
 		"state": "Indiana",
 		"zipcode": "46221",
-		"is_hd":false
+		"hd":false
 	},
 	"profile_update_prompt": false
 }] }
@@ -1288,7 +1288,7 @@ GET /users/{1}
 		"city": "Indianapolis",
 		"state": "Indiana",
 		"zipcode": "46221",
-		"is_hd":false
+		"hd":false
 	},
 	"profile_update_prompt": false
 }] }
@@ -1331,7 +1331,7 @@ POST /users
 			"city": "Indianapolis",
 			"state": "Indiana",
 			"zipcode": "46221",
-			"is_hd":false
+			"hd":false
 		},
 	   "profile_update_prompt": false
 	}] }
@@ -1374,7 +1374,7 @@ PUT /users/{id}
 			"city": "Indianapolis",
 			"state": "Indiana",
 			"zipcode": "46221",
-			"is_hd":false
+			"hd":false
 		},
 	   "profile_update_prompt": false
 	}] }
@@ -1400,7 +1400,7 @@ PUT /users/{id}
 			"city": "Indianapolis",
 			"state": "Indiana",
 			"zipcode": "46221",
-			"is_hd":false
+			"hd":false
 		},
 	   "profile_update_prompt": false
 	}] }
