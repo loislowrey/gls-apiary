@@ -1,6 +1,6 @@
 HOST: http://api.glsdashboard.com/api/v1/
 
---- GLS Dashboard API v1.9 ---
+--- GLS Dashboard API v2.0 ---
 ---
 test
 All comments can be written in (support [Markdown](http://daringfireball.net/projects/markdown/syntax) syntax)
@@ -282,20 +282,6 @@ GET /startup/dashboard?user_id={user_id}
 				"marker_url": "http://www.google.com"
 			},
 			{
-				"id":6,
-				"open_issue":true,
-				"status":"EMERGENCY - Offline",
-				"require_details": true,
-				"marker_url": "http://www.google.com"
-			},
-			{
-				"id":7,
-				"open_issue":false,
-				"status":"Offline - End of Day",
-				"require_details": false,
-				"marker_url": "http://www.google.com"
-			},
-			{
 				"id":8,
 				"open_issue":true,
 				"status":"Closed Captioning",
@@ -307,6 +293,20 @@ GET /startup/dashboard?user_id={user_id}
 				"open_issue":true,
 				"status":"Language Translation",
 				"require_details": true,
+				"marker_url": "http://www.google.com"
+			},
+			{
+				"id":6,
+				"open_issue":true,
+				"status":"EMERGENCY - Offline",
+				"require_details": true,
+				"marker_url": "http://www.google.com"
+			},
+			{
+				"id":7,
+				"open_issue":false,
+				"status":"Offline - End of Day",
+				"require_details": false,
 				"marker_url": "http://www.google.com"
 			}
 		]
@@ -1478,10 +1478,10 @@ GET /broadcast_statuses
 					"Broadcasting Web Stream - Due to Other",
 					"Rental Projector Issue (Premiere Only) - Still Broadcasting",
 					"Other",
-					"EMERGENCY - Offline",
-					"Offline - End of Day",
 					"Closed Captioning",
-					"Language Translation"
+					"Language Translation",
+					"EMERGENCY - Offline",
+					"Offline - End of Day"
 				]
 			},
 			"require_details": {
