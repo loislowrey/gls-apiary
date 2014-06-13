@@ -572,27 +572,39 @@ POST /chats
 	"message": "some text here",
 	"user_id": 1,
 	"recipients": [{"site_type_id": 1, "site_time": "live"}, {"site_type_id": 2, "site_time": "live"}, {"site_id": 1}],
-	"type": "chat"
+	"type": "chat",
+	"meta_data":{
+		"site_id":1
+	}
 },
 {
 	"message": "some text here",
 	"user_id": 1,
 	"recipients": [{"site_id": 1}],
 	"type": "issue",
-	"broadcast_status_id": 1
+	"broadcast_status_id": 1,
+	"meta_data":{
+		"site_id":1
+	}
 },
 {
 	"message": "my question here",
 	"user_id": 1,
 	"recipients": [{"site_id": 0}],
-	"type": "question"
+	"type": "question",
+	"meta_data":{
+		"site_id":1
+	}
 },
 {
 	"message": "my answer here",
 	"user_id": 1,
 	"recipients": [{"site_id": 0}],
 	"type": "answer",
-	"question_id": 1
+	"question_id": 1,
+	"meta_data":{
+		"site_id":1
+	}
 }
 < 200
 < Content-Type: application/json
@@ -723,7 +735,7 @@ POST /login
 	"email":"jdoe@gmail.com",
 	"full_name":"John Doe",
 	"mobile_phone":"555-555-5555",
-	"is_admin":false,
+	"is_admin":true,
 	"site":{
 		"id":1,
 		"site_number":"87",
