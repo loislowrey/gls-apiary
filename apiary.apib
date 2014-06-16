@@ -1358,12 +1358,12 @@ GET /users/site/{site}
 
 
 retrieve requested user by id
-GET /users/{1}
+GET /users/{1}?callback={callback}
 + Parameters
 	+ callback ... jquery callback for jsonp
 < 200
 < Content-Type: application/json
-{ "items": [{
+{callback}({ "items": [{
 	"id":1,
 	"username":"jdoe",
 	"email":"jdoe@gmail.com",
@@ -1385,7 +1385,7 @@ GET /users/{1}
 		"hd":false
 	},
 	"profile_update_prompt": false
-}] }
+}] })
 +++++
 < 400
 < Content-Type: application/json
