@@ -491,6 +491,55 @@ GET /broadcast_statuses
 
 
 --
+Questions
+Utility route - Returns all questions and answers
+
+Page and items_per_page are optional. If omitted, return everything. This is just here in case these start getting way too big.
+--
+GET /questions?page={1}&items_per_page={10}&unanswered_only={true}
+< 200
+< Content-Type: application/json
+{"items": [
+	{
+		"id":6,
+		"full_name": "John Doe",
+		"message": "this is my answer to quesiton 5",
+		"date": 1372535760,
+		"recipients": [{"site_id":0, "site_number":"0", "site_name":"Willow Creek"}],
+		"type": "answer",
+		"meta_data":{
+			"site_id":1,
+			"site_number":"87",
+			"question_id": 5
+		}
+	},{
+		"id":5,
+		"full_name": "John Doe",
+		"message": "this is my answered question",
+		"date": 1372535760,
+		"recipients": [{"site_id":0, "site_number":"0", "site_name":"Willow Creek"}],
+		"type": "question",
+		"meta_data":{
+			"site_id":1,
+			"site_number":"87",
+			"answer_id": 6
+		}
+	},{
+		"id":4,
+		"full_name": "John Doe",
+		"message": "this is my question",
+		"date": 1372535760,
+		"recipients": [{"site_id":0, "site_number":"0", "site_name":"Willow Creek"}],
+		"type": "question",
+		"meta_data":{
+			"site_id":1,
+			"site_number":"87",
+			"answer_id": null
+		}
+	}
+]}
+
+--
 Chat
 This is subject to change once i start actually implementing chat...
 
