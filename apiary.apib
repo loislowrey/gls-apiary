@@ -457,6 +457,21 @@ PUT /settings
 < 204
 
 --
+Set All Sites Offline
+--
+Retrieve Key
+GET /set_all_sites_offline
+< 200
+< Content-Type: application/json
+{'key': 'value'}
+
+Pass back key and throw the kill switch!
+POST /set_all_sites_offline
+> Content-Type: application/json
+{'key': 'value'}
+< 204
+
+--
 Broadcast Statuses
 --
 Retrieve broadcast statuses
