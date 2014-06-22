@@ -399,6 +399,7 @@ GET /startup/dashboard?user_id={user_id}
 				"created": 1372534777,
 				"last_activity": 1372534988,
 				"resolved": false,
+				"deferred": true,
 				"site_id":1,
 				"site_number":"87",
 				"site_name":"First Church of Christ",
@@ -795,6 +796,7 @@ GET /issues?resolved={false}
 	"created": 1372534777,
 	"last_activity": 1372534988,
 	"resolved": false,
+	"deferred": false,
 	"site_id":1,
 	"site_number":"87",
 	"site_name":"First Church of Christ",
@@ -816,6 +818,7 @@ GET /issues/{id}
 	"created": 1372534777,
 	"last_activity": 1372534988,
 	"resolved": false,
+	"deferred": false,
 	"site_id":1,
 	"site_number":"87",
 	"site_name":"First Church of Christ",
@@ -845,6 +848,14 @@ GET /issues/{id}
 			"resolution": true
 		}
 	]
+}
+
+defer an issue
+PATCH /issues/{id}
+> Content-Type: application/json
+{
+	"id": 1,
+	"deferred": true
 }
 
 create an issue comment. This is how issues are resolved as well...
