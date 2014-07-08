@@ -860,11 +860,11 @@ PATCH /issues/{id}
 
 
 close all issues
-PUT /issues
+POST /issues
 > Content-Type: application/json
 {
     "command": "resolve", 
-    "id" : "1234uniqueidentifierguidlane"
+    "guid" : "1234uniqueidentifierguidlane"
 }
 < 204
 
