@@ -859,11 +859,8 @@ PATCH /issues/{id}
 < 204
 
 close all issues
-POST /issues
-> Content-Type: application/json
-{
-	"command": "resolve"
-}
+POST /issues?command=resolve&id={1234uniqueidentifierguidlane}
+> Content-Type: application/x-www-form-urlencoded
 < 204
 
 create an issue comment. This is how issues are resolved as well...
