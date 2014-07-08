@@ -858,10 +858,14 @@ PATCH /issues/{id}
 }
 < 204
 
+
 close all issues
 PUT /issues
 > Content-Type: application/json
-{'command': 'resolve', 'id' : '1234uniqueidentifierguidlane' }
+{
+    "command": "resolve", 
+    "id" : "1234uniqueidentifierguidlane"
+}
 < 204
 
 create an issue comment. This is how issues are resolved as well...
