@@ -1211,6 +1211,8 @@ GET /reset-password?email={email}
 Sites
 --
 Retrieve Sites
+
+For market_url, this can either be a full URL for a custom marker img, or, a color indicating what color the marker pin should be.
 GET /sites
 < 200
 < Content-Type: application/json
@@ -1229,7 +1231,7 @@ GET /sites
 		"zipcode": "46221",
 		"latitude": 41.850033,
 		"longitude": -87.65005229999997,
-		"marker_url": "http://maps.google.com/mapfiles/kml/paddle/grn-blank.png",
+		"marker_url": "FFA500",
 		"hd": true,
 		"users": [
 			{
