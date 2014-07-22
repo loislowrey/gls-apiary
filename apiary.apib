@@ -957,7 +957,8 @@ POST /issues
 < 204
 
 
-create an issue comment. This is how issues are resolved as well...
+create an issue comment. This is how issues are resolved as well.
+This illustrates three possible responses based on the resolution... There may be a more correct RESTful way to do this, but, I don't know it.
 POST /issues/{id}/comments
 > Content-Type: application/json
 {
@@ -968,13 +969,98 @@ POST /issues/{id}/comments
 < 200
 < Content-Type: application/json
 {
+	"id":1145,
+	"full_name":"Matt Satorius",
+	"message":"test comment",
+	"date":1406062094,
+	"mobile_phone":"615-866-2384",
+	"email":"matt@sators.com",
+	"resolution":false
+}
++++++
+< 200
+< Content-Type: application/json
+{
 	"id":4,
 	"full_name": "Jane Doorknob",
 	"message": "Changed broadcast status to Broadcasting Satellite Feed",
 	"date": 1372534777,
 	"mobile_phone": "555-123-1233",
 	"email": "jdoe@gmail.com",
-	"resolution": true
+	"resolution": true,
+	"meta_data":{
+		"issue_id":1,
+		"site_id":1,
+		"site_number":"87",
+		"site_name":"First Church of Christ",
+		"broadcast_status_id":1,
+		"broadcast_status":"Broadcasting Web Stream - Due to Weather",
+		"details":"issue details",
+		"user": {
+			"id":1,
+			"username":"jdoe",
+			"email":"jdoe@gmail.com",
+			"full_name":"John Doe",
+			"mobile_phone":"555-555-5555",
+			"is_admin":false,
+			"site":{
+				"id":1,
+				"site_number":"87",
+				"site_name":"Willow Creek Community Church",
+				"site_type_id":1,
+				"site_type": "premiere",
+				"site_time":"live",
+				"address": "123 N Main Street",
+				"city": "Indianapolis",
+				"state": "Indiana",
+				"zipcode": "46221",
+				"hd":false
+			},
+			"profile_update_prompt": false
+		}
+	}
+}
++++++
+< 200
+< Content-Type: application/json
+{
+	"id":4,
+	"full_name": "Jane Doorknob",
+	"message": "Changed broadcast status to Broadcasting Satellite Feed",
+	"date": 1372534777,
+	"mobile_phone": "555-123-1233",
+	"email": "jdoe@gmail.com",
+	"resolution": true,
+	"meta_data":{
+		"site_id":1,
+		"site_number":"87",
+		"site_name":"First Church of Christ",
+		"broadcast_status_id":1,
+		"broadcast_status":"Broadcasting Satellite Feed - All Systems Go!",
+		"details":"Online",
+		"user": {
+			"id":1,
+			"username":"jdoe",
+			"email":"jdoe@gmail.com",
+			"full_name":"John Doe",
+			"mobile_phone":"555-555-5555",
+			"is_admin":false,
+			"site":{
+				"id":1,
+				"site_number":"87",
+				"site_name":"Willow Creek Community Church",
+				"site_type_id":1,
+				"site_type": "premiere",
+				"site_time":"live",
+				"address": "123 N Main Street",
+				"city": "Indianapolis",
+				"state": "Indiana",
+				"zipcode": "46221",
+				"hd":false
+			},
+			"profile_update_prompt": false
+		}
+	}
 }
 +++++
 < 400
