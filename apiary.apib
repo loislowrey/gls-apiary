@@ -1818,6 +1818,11 @@ DELETE /users/{id}
 { "message": "please provide user's id" }
 ] }
 
+Get a CSV of all issues
+GET /export.php?data={issues}
+< 200
+< Content-Type: text/csv
+
 -- JSON Schema Validations --
 GET /broadcast_statuses
 {
