@@ -501,6 +501,16 @@ PUT /settings
 }
 < 204
 
+Update (200) admin settings
+PATCH /settings
+> Content-Type: application/json
+{
+	"logo":"data:image/png;base64,iVBORw0KGgoAAAANS...",
+	"welcome_subject":"blah lah blah",
+	"welcome_content":"afds asdf aafds asd fasdfasdf"
+}
+< 204
+
 --
 Set All Sites Offline
 --
