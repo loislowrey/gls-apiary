@@ -992,7 +992,8 @@ POST /issues/{id}/comments
 {
 	"user_id":1,
 	"comment": "adsfasdf adsfadsf asdfasdf",
-	"resolved":true
+	"resolved":true,
+	"deferred":false
 }
 < 200
 < Content-Type: application/json
@@ -1003,7 +1004,8 @@ POST /issues/{id}/comments
 	"date":1406062094,
 	"mobile_phone":"615-866-2384",
 	"email":"matt@sators.com",
-	"resolution":false
+	"resolution":false,
+	"deferred":false
 }
 +++++
 < 200
@@ -1015,7 +1017,8 @@ POST /issues/{id}/comments
 	"date": 1372534777,
 	"mobile_phone": "555-123-1233",
 	"email": "jdoe@gmail.com",
-	"resolution": true,
+	"resolution": true,,
+	"deferred":false,
 	"meta_data":{
 		"issue_id":1,
 		"site_id":1,
