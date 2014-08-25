@@ -721,7 +721,7 @@ This is subject to change once i start actually implementing chat...
 
 
 Retrieve chat messages applicable to user (includes chat sent directly to that user, to user's site and to all in user's site type, etc.). I'm thinking I'll handle pagination on client side
-GET /chats?user_id={1}&page={1}&items_per_page={10}
+GET /chats?user_id={1}&page={1}&items_per_page={10}&site_id={1}
 < 200
 < Content-Type: application/json
 {"items": [
